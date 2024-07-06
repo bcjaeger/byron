@@ -1,0 +1,36 @@
+---
+title: "Accelerated and Interpretable Oblique Random Survival Forests"
+subtitle: 'Introduction and assessment of methods used in aorsf'
+author: 
+- Byron C. Jaeger
+- Sawyer Welden
+- Kristin Lenoir
+- Jaime L. Speiser
+- Matthew W. Segar
+- Ambarish Pandey 
+- Nicholas M. Pajewski
+date: '2023-08-08'
+categories:
+  - Research 
+  - Random forests
+  - Machine learning
+links:
+- icon: file-richtext-fill
+  name: Publication
+  url: https://doi.org/10.1080/10618600.2023.2231048
+- icon: github
+  name: Relevant files
+  url: https://github.com/bcjaeger/aorsf-bench
+---
+
+#### Background
+
+The oblique random survival forest (RSF) is an ensemble supervised learning method for right-censored outcomes. Trees in the oblique RSF are grown using linear combinations of predictors to create branches, whereas in the standard RSF, a single predictor is used. Oblique RSF ensembles often have higher prediction accuracy than standard RSF ensembles. However, assessing all possible linear combinations of predictors induces significant computational overhead that limits applications to large-scale data sets. In addition, few methods have been developed for interpretation of oblique RSF ensembles, and they remain more difficult to interpret compared to their axis-based counterparts.
+
+#### Methods
+
+We introduce a method to increase computational efficiency of the oblique RSF and a method to estimate importance of individual predictor variables with the oblique RSF. Our strategy to reduce computational overhead makes use of Newton-Raphson scoring, a classical optimization technique that we apply to the Cox partial likelihood function within each non-leaf node of decision trees. We estimate the importance of individual predictors for the oblique RSF by negating each coefficient used for the given predictor in linear combinations, and then computing the reduction in out-of-bag accuracy.
+
+#### Results
+
+In general benchmarking experiments, we find that our implementation of the oblique RSF is approximately 450 times faster with equivalent discrimination and superior Brier score compared to existing software for oblique RSFs. We find in simulation studies that 'negation importance' discriminates between relevant and irrelevant predictors more reliably than permutation importance, Shapley additive explanations, and a previously introduced technique to measure variable importance with oblique RSFs based on analysis of variance. Methods introduced in the current study are available in the `aorsf` R package.

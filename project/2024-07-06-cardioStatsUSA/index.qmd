@@ -1,0 +1,28 @@
+---
+title: 'Interactive visualization of hypertension statistics'
+date: 2024-07-06
+date-modified: today
+image: featured.jpg
+categories:
+  - R
+  - shiny
+  - hypertension
+  - blood pressure
+  - NHANES
+subtitle: >
+  An Open-Source Web Application for Analysis and Visualization of National Health and Nutrition Examination Survey Data
+description: ''
+
+listing: 
+- id: cardioStatsUSA
+  sort: date desc
+  type: grid
+  grid-columns: 2
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  fields: [image, title, description]
+  image-height: "200"
+---
+
+Data from the US National Health and Nutrition Examination Survey are freely available and can be analyzed to produce hypertension statistics for the noninstitutionalized US population. The analysis of these data requires statistical programming expertise and knowledge of National Health and Nutrition Examination Survey methodology.

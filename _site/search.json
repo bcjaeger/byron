@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "talk/index.html",
+    "href": "talk/index.html",
+    "title": "Talks",
+    "section": "",
+    "text": "R/Medicine Demo day - aorsf\n\n\nA live demonstration of the aorsf R package\n\n\n\n\nResearch\n\n\nRandom forests\n\n\nMachine learning\n\n\n \n\n\n\n\nMay 24, 2024\n\n\nByron Jaeger\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "publication/2023-08-08-accelerated-and-interpretable-oblique-random-survival-forests/index.html",
+    "href": "publication/2023-08-08-accelerated-and-interpretable-oblique-random-survival-forests/index.html",
+    "title": "Accelerated and Interpretable Oblique Random Survival Forests",
+    "section": "",
+    "text": "Background\nThe oblique random survival forest (RSF) is an ensemble supervised learning method for right-censored outcomes. Trees in the oblique RSF are grown using linear combinations of predictors to create branches, whereas in the standard RSF, a single predictor is used. Oblique RSF ensembles often have higher prediction accuracy than standard RSF ensembles. However, assessing all possible linear combinations of predictors induces significant computational overhead that limits applications to large-scale data sets. In addition, few methods have been developed for interpretation of oblique RSF ensembles, and they remain more difficult to interpret compared to their axis-based counterparts.\n\n\nMethods\nWe introduce a method to increase computational efficiency of the oblique RSF and a method to estimate importance of individual predictor variables with the oblique RSF. Our strategy to reduce computational overhead makes use of Newton-Raphson scoring, a classical optimization technique that we apply to the Cox partial likelihood function within each non-leaf node of decision trees. We estimate the importance of individual predictors for the oblique RSF by negating each coefficient used for the given predictor in linear combinations, and then computing the reduction in out-of-bag accuracy.\n\n\nResults\nIn general benchmarking experiments, we find that our implementation of the oblique RSF is approximately 450 times faster with equivalent discrimination and superior Brier score compared to existing software for oblique RSFs. We find in simulation studies that ‘negation importance’ discriminates between relevant and irrelevant predictors more reliably than permutation importance, Shapley additive explanations, and a previously introduced technique to measure variable importance with oblique RSFs based on analysis of variance. Methods introduced in the current study are available in the aorsf R package."
+  },
+  {
+    "objectID": "project/2024-07-06-cardioStatsUSA/index.html",
+    "href": "project/2024-07-06-cardioStatsUSA/index.html",
+    "title": "Interactive visualization of hypertension statistics",
+    "section": "",
+    "text": "Data from the US National Health and Nutrition Examination Survey are freely available and can be analyzed to produce hypertension statistics for the noninstitutionalized US population. The analysis of these data requires statistical programming expertise and knowledge of National Health and Nutrition Examination Survey methodology.\n\n\n\n\n\n\n\n\n\nNo matching items\n\nCitationFor attribution, please cite this work as:\nJaeger, Byron. 2024. “Interactive Visualization of Hypertension\nStatistics.” July 6, 2024."
+  },
+  {
+    "objectID": "project/2024-06-28-melodem-apoe4-het/index.html",
+    "href": "project/2024-06-28-melodem-apoe4-het/index.html",
+    "title": "MELODEM data workshop",
+    "section": "",
+    "text": "No matching items\n\nCitationFor attribution, please cite this work as:\nJaeger, Byron. 2024. “MELODEM Data Workshop.” June 28,\n2024."
+  },
+  {
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "Byron Jaeger",
+    "section": "",
+    "text": "I’m a biostatistician and data scientist in the Wake Forest University School of Medicine"
+  },
+  {
+    "objectID": "about/index.html#hello-and-thanks-for-visiting",
+    "href": "about/index.html#hello-and-thanks-for-visiting",
+    "title": "Byron Jaeger",
+    "section": "",
+    "text": "I’m a biostatistician and data scientist in the Wake Forest University School of Medicine"
+  },
+  {
+    "objectID": "about/index.html#research",
+    "href": "about/index.html#research",
+    "title": "Byron Jaeger",
+    "section": "Research",
+    "text": "Research\nMy research interests include random forests, prediction modeling, blood pressure, cardiovascular disease, and cognition. I work in clinical trials such as SPRINT, LEAP, and MoTrPAC. My roles include data coordination, dynamic reporting, simulation, and analysis. I’m the developer of aorsf, an R package with fast routines to fit oblique random forests for classification, regression, and survival outcomes. I work with cognitive science experts to develop robust prediction models that can help direct cognitive screening to patients who may be at risk for developing cognitive impairment or dementia. I believe in opening science up and making it simpler, so that it’s easier for everyone to participate. A great example of this is the hypertension statistics web application I developed with my colleagues in the Jackson Heart Study Hypertension Working Group. It’s free, try it out! There are online tutorials for it here and a paper here."
+  },
+  {
+    "objectID": "about/index.html#teaching",
+    "href": "about/index.html#teaching",
+    "title": "Byron Jaeger",
+    "section": "Teaching",
+    "text": "Teaching\nI love to teach and learn new things. I’m currently teaching THSS 730: Introduction to Biostatistics. A few other teaching activities are my workshop on random forests for prediction and inference, my demo of the aorsf package, and my all-time favorite class, Introduction to R."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Byron Jaeger, PhD",
+    "section": "",
+    "text": "GitHub\n  \n  \n      Scholar\n  \n\n      \nI am a biostatistician and an R enthusiast. My research interests are health and data science. I develop software for oblique random forests and I help coordinate clinical trials and observational studies.\nLearn more about me →"
+  },
+  {
+    "objectID": "project/2024-07-06-aorsf/index.html",
+    "href": "project/2024-07-06-aorsf/index.html",
+    "title": "Accelerated oblique random forests",
+    "section": "",
+    "text": "The aorsf package is a software project dedicated to oblique random forests. It was originally the obliqueRSF package introduced in the oblique random survival forest paper, and had trouble with inefficiency and lack of features for interpretation. Today, it has grown into an R package that efficiently fits oblique random forests for classification, regression, and survival, with customized features to interpret them.\nWhen aorsf was reviewed by R OpenSci, one of my reviewers was Marvin N. Wright, author of the ranger package. At the time, aorsf was only designed to fit oblique random survival forests, and one of Marvin’s review comments was\n\nWhat about oblique RF for classification and regression? Do other packages implement the speedups used here? If not, why not have a fast oblique RF package for all outcomes instead of a specific one for survival?\n\nIt was a great question. Over the years there have been packages that provide specific types of oblique random forests, like obliqueRF, RLT, rotationForest, and others. But, as far as I know, there was never an R package that brought oblique random forests together.\n\nlibrary(aorsf)\nlibrary(obliqueRSF)\nlibrary(survival)\nlibrary(microbenchmark)\n\noptions(microbenchmark.unit=\"relative\")\n\nflc &lt;- na.omit(survival::flchain)\nflc$futime &lt;- pmax(flc$futime, 0.01)\n\nmicrobenchmark(\n obliqueRSF = ORSF(data = flc, \n                   time = 'futime', \n                   status = 'death', \n                   ntree = 10, \n                   verbose = FALSE),\n aorsf = orsf(futime + death ~ ., \n              data = flc, \n              n_tree = 10),\n times = 1\n)\n\nUnit: relative\n       expr      min       lq     mean   median       uq      max neval\n obliqueRSF 245.9676 245.9676 245.9676 245.9676 245.9676 245.9676     1\n      aorsf   1.0000   1.0000   1.0000   1.0000   1.0000   1.0000     1\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\nCitationFor attribution, please cite this work as:\nJaeger, Byron. 2024. “Accelerated Oblique Random Forests.”\nJuly 6, 2024."
+  },
+  {
+    "objectID": "project/index.html",
+    "href": "project/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Accelerated oblique random forests\n\n\n\nR\n\n\nrandom forest\n\n\nmachine learning\n\n\n\n\nJul 6, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInteractive visualization of hypertension statistics\n\n\n\nR\n\n\nshiny\n\n\nhypertension\n\n\nblood pressure\n\n\nNHANES\n\n\n\n\nJul 6, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMELODEM data workshop\n\n\n\nR\n\n\nquarto\n\n\nrandom forest\n\n\nmachine learning\n\n\nMELODEM\n\n\n\n\nJun 28, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "publication/index.html",
+    "href": "publication/index.html",
+    "title": "Publications",
+    "section": "",
+    "text": "Accelerated and Interpretable Oblique Random Survival Forests\n\n\nIntroduction and assessment of methods used in aorsf\n\n\n\n\nResearch\n\n\nRandom forests\n\n\nMachine learning\n\n\n \n\n\n\n\nAug 8, 2023\n\n\nByron C. Jaeger, Sawyer Welden, Kristin Lenoir, Jaime L. Speiser, Matthew W. Segar, Ambarish Pandey, Nicholas M. Pajewski\n\n\n\n\n\n\nNo matching items"
+  }
+]

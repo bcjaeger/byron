@@ -1,0 +1,26 @@
+---
+title: 'MELODEM data workshop'
+date: 2024-06-28
+date-modified: today
+image: featured.jpg
+categories:
+  - R
+  - quarto
+  - random forest
+  - machine learning
+  - MELODEM
+subtitle: >
+  An introduction to oblique and causal random forests
+description: ''
+
+listing: 
+- id: melodem-apoe4-het
+  sort: date desc
+  type: grid
+  grid-columns: 2
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  fields: [image, title, description]
+  image-height: "200"
+---

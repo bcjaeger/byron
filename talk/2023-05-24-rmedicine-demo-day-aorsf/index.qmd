@@ -1,0 +1,18 @@
+---
+title: "R/Medicine Demo day - aorsf"
+subtitle: "A live demonstration of the aorsf R package"
+author: Byron Jaeger
+date: 2024-05-24
+categories:
+  - Research 
+  - Random forests
+  - Machine learning
+links:
+- icon: file-richtext-fill
+  name: Slides
+  url: https://bcjaeger.github.io/seminar-orsf-Rmedicine/#1
+- icon: github
+  name: Relevant files
+  url: https://github.com/bcjaeger/seminar-orsf-Rmedicine
+---
+

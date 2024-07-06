@@ -1,0 +1,59 @@
+---
+title: 'Accelerated oblique random forests'
+date: 2024-07-06
+date-modified: today
+image: featured.jpg
+categories:
+  - R
+  - random forest
+  - machine learning
+subtitle: >
+  Fast oblique random forests for regression, classification, and survival.
+description: ''
+
+listing: 
+- id: aorsf
+  sort: date desc
+  type: grid
+  grid-columns: 2
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  fields: [image, title, description]
+  image-height: "200"
+---
+
+The `aorsf` package is a software project dedicated to oblique random forests. It was originally the `obliqueRSF` package introduced in the [oblique random survival forest paper](https://pubmed.ncbi.nlm.nih.gov/36704751/), and had trouble with inefficiency and lack of features for interpretation. Today, it has grown into an R package that efficiently fits oblique random forests for classification, regression, and survival, with customized features to interpret them.
+
+When `aorsf` was reviewed by R OpenSci, one of my reviewers was Marvin N. Wright, author of the `ranger` package. At the time, `aorsf` was only designed to fit oblique random survival forests, and one of Marvin's [review comments](https://github.com/ropensci/software-review/issues/532/#issuecomment-1235275312) was
+
+> What about oblique RF for classification and regression? Do other packages implement the speedups used here? If not, why not have a fast oblique RF package for all outcomes instead of a specific one for survival?
+
+It was a great question. Over the years there have been packages that provide specific types of oblique random forests, like [`obliqueRF`](https://CRAN.R-project.org/package=obliqueRF), [`RLT`](https://CRAN.R-project.org/package=RLT), [`rotationForest`](https://CRAN.R-project.org/package=rotationForest), and others. But, as far as I know, there was never an R package that brought oblique random forests together.
+
+```{r}
+#| message: false
+
+library(aorsf)
+library(obliqueRSF)
+library(survival)
+library(microbenchmark)
+
+options(microbenchmark.unit="relative")
+
+flc <- na.omit(survival::flchain)
+flc$futime <- pmax(flc$futime, 0.01)
+
+microbenchmark(
+ obliqueRSF = ORSF(data = flc, 
+                   time = 'futime', 
+                   status = 'death', 
+                   ntree = 10, 
+                   verbose = FALSE),
+ aorsf = orsf(futime + death ~ ., 
+              data = flc, 
+              n_tree = 10),
+ times = 1
+)
+
+```

@@ -1,0 +1,27 @@
+project:
+  type: website
+
+website:
+  title: "Byron Jaeger"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about/index.qmd
+        text: About
+      - href: project/index.qmd
+        text: Projects
+      - href: publication/index.qmd
+        text: Publications
+      - href: talk/index.qmd
+        text: Talks
+
+
+format:
+  html:
+    theme: sandstone
+    css: styles.css
+    toc: true
+
+editor: visual
+
