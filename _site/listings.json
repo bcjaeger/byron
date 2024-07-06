@@ -6,16 +6,10 @@
     ]
   },
   {
-    "listing": "/project/2024-07-06-cardioStatsUSA/index.html",
-    "items": []
-  },
-  {
-    "listing": "/project/2024-06-28-melodem-apoe4-het/index.html",
-    "items": []
-  },
-  {
-    "listing": "/project/2024-07-06-aorsf/index.html",
-    "items": []
+    "listing": "/publication/index.html",
+    "items": [
+      "/publication/2023-08-08-accelerated-and-interpretable-oblique-random-survival-forests/index.html"
+    ]
   },
   {
     "listing": "/project/index.html",
@@ -26,9 +20,15 @@
     ]
   },
   {
-    "listing": "/publication/index.html",
-    "items": [
-      "/publication/2023-08-08-accelerated-and-interpretable-oblique-random-survival-forests/index.html"
-    ]
+    "listing": "/project/2024-07-06-aorsf/index.html",
+    "items": []
+  },
+  {
+    "listing": "/project/2024-06-28-melodem-apoe4-het/index.html",
+    "items": []
+  },
+  {
+    "listing": "/project/2024-07-06-cardioStatsUSA/index.html",
+    "items": []
   }
 ]
