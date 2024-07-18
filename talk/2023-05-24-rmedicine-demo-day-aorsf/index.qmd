@@ -12,7 +12,7 @@ links:
   name: Slides
   url: https://bcjaeger.github.io/seminar-orsf-Rmedicine/#1
 - icon: github
-  name: Relevant files
+  name: Code
   url: https://github.com/bcjaeger/seminar-orsf-Rmedicine
 - icon: youtube
   name: Video

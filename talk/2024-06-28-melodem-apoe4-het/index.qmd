@@ -12,7 +12,7 @@ links:
   name: Slides
   url: https://bcjaeger.github.io/melodem-apoe4-het/#day-1-oblique-and-causal-random-forests
 - icon: github
-  name: Relevant files
+  name: Code
   url: https://github.com/bcjaeger/melodem-apoe4-het
 ---
 

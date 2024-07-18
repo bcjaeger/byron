@@ -12,7 +12,7 @@ links:
   name: Slides
   url: https://bcjaeger.github.io/sprint-dementia-jm/#1
 - icon: github
-  name: Relevant files
+  name: Code
   url: https://github.com/bcjaeger/sprint-dementia-jm
 ---
 

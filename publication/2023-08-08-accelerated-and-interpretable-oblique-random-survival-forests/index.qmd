@@ -19,7 +19,7 @@ links:
   name: Publication
   url: https://doi.org/10.1080/10618600.2023.2231048
 - icon: github
-  name: Relevant files
+  name: Code
   url: https://github.com/bcjaeger/aorsf-bench
 ---
 

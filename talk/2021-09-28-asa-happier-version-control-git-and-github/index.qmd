@@ -12,7 +12,7 @@ links:
   name: Slides
   url: https://bcjaeger.github.io/seminar-git/
 - icon: github
-  name: Relevant files
+  name: Code
   url: https://github.com/bcjaeger/seminar-git/
 ---
 

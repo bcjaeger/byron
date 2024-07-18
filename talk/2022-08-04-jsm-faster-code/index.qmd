@@ -11,7 +11,7 @@ links:
   name: Slides
   url: https://bcjaeger.github.io/seminar-fastpack/#1
 - icon: github
-  name: Relevant files
+  name: Code
   url: https://github.com/bcjaeger/seminar-orsf-Rmedicine
 ---
 
