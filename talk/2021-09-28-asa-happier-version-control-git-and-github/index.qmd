@@ -1,0 +1,19 @@
+---
+title: "Happier version control with git and GitHub"
+subtitle: ""
+author: Byron Jaeger
+date: 2021-09-28
+categories:
+  - Research 
+  - git
+  - GitHub
+links:
+- icon: files
+  name: Slides
+  url: https://bcjaeger.github.io/seminar-git/
+- icon: github
+  name: Relevant files
+  url: https://github.com/bcjaeger/seminar-git/
+---
+
+Git and GitHub are fantastic tools for version control and collaboration. Data scientists have increasingly used GitHub as a platform for sharing their work and working together thanks to publicly available guides such as Jenny Bryan's *Happy git with R* textbook. In this seminar, I walk through the basics of git and GitHub, beginning with the jargon of git and proceeding up through submitting pull requests on GitHub.

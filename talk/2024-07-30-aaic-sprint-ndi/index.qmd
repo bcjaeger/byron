@@ -1,0 +1,22 @@
+---
+title: "Longer Term All-Cause and Cardiovascular Mortality With Intensive Blood Pressure Control"
+subtitle: "A Secondary Analysis of a Randomized Clinical Trial"
+author: Byron Jaeger
+date: 2024-07-31
+categories:
+  - Research 
+  - Clinical trials
+  - Dementia
+links:
+- icon: files
+  name: Slides
+  url: https://bcjaeger.github.io/sprint-mortality-ndi/#/title-slide
+- icon: github
+  name: Relevant files
+  url: https://github.com/bcjaeger/sprint-mortality-ndi
+- icon: file-richtext
+  name: Publication
+  url: https://jamanetwork.com/journals/jamacardiology/fullarticle/2797064
+---
+
+After SPRINT, from 2016-2020, the mean systolic blood pressure levels of participants returned to about 140 mm Hg, and the benefit of intensive blood pressure control attenuated. Additional follow-up from 2020-2023 provides an opportunity to think carefully about interventions that had a beneficial effect.

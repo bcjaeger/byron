@@ -14,5 +14,9 @@ links:
 - icon: github
   name: Relevant files
   url: https://github.com/bcjaeger/seminar-orsf-Rmedicine
+- icon: youtube
+  name: Video
+  url: https://www.youtube.com/watch?v=LJoGmQapvf0
 ---
 
+A live demonstration of the aorsf R package, which provides fast routines to fit and interpret oblique random survival forests (RSFs). The talk also provides a light introduction to supervised learning, random forests, and oblique trees.

@@ -1,0 +1,19 @@
+---
+title: "Oblique and causal random forests"
+subtitle: "MELODEM data workshop, 2024"
+author: Byron Jaeger
+date: 2024-06-28
+categories:
+  - Research 
+  - Random forests
+  - Dementia
+links:
+- icon: files
+  name: Slides
+  url: https://bcjaeger.github.io/melodem-apoe4-het/#day-1-oblique-and-causal-random-forests
+- icon: github
+  name: Relevant files
+  url: https://github.com/bcjaeger/melodem-apoe4-het
+---
+
+The workshop focuses on the use of random forests to predict dementia risk and identify heterogeneity in the association between APOE4 and dementia risk. This website hosts the materials for the workshop and the corresponding GitHub repository includes additional materials for manuscript development.

@@ -32,3 +32,5 @@ I am a biostatistician and an R enthusiast.<br> My research interests are health
 
 [Learn more about me →](/about){.about-links .subtitle}
 :::
+
+<!-- icon list at https://icons.getbootstrap.com/ -->
