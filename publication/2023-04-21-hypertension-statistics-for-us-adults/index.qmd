@@ -1,0 +1,49 @@
+---
+title: "Hypertension Statistics for US Adults"
+subtitle: "An Open-Source Web Application for Analysis and Visualization of National Health and Nutrition Examination Survey Data"
+author: 
+- Byron C Jaeger
+- Ligong Chen
+- Kathryn Foti
+- Shakia T Hardy
+- Adam P Bress
+- Sean P Kane
+- Lei Huang
+- Jennifer S Herrick
+- Catherine G Derington
+- Bharat Poudel
+- Ashley Christenson
+- Lisandro D Colantonio
+- Paul Muntner
+date: '2023-04-21'
+categories:
+  - Research 
+  - Hypertension
+  - Blood pressure
+  - Shiny
+links:
+- icon: file-richtext-fill
+  name: Publication
+  url: https://doi.org/10.1161/HYPERTENSIONAHA.123.20900
+- icon: github
+  name: Code
+  url: https://github.com/jhs-hwg/cardioStatsUSA
+- icon: pc-display-horizontal
+  name: Web application
+  url: https://bcjaeger.shinyapps.io/nhanesShinyBP/
+- icon: book
+  name: Documentation
+  url: https://jhs-hwg.github.io/cardioStatsUSA/index.html
+---
+
+#### Background
+
+Data from the US National Health and Nutrition Examination Survey (NHANES) are freely available and can be analyzed to produce hypertension statistics for the non-institutionalized US population. The analysis of these data requires statistical programming knowledge.
+
+#### Methods
+
+We developed and validated a web-based application that provides hypertension statistics for US adults using 10 cycles of NHANES data, 1999-2000 through 2017-2020, without requiring users to conduct statistical programming. The application’s interface allows users to estimate crude and age-adjusted means, quantiles and proportions. Population counts can also be estimated. To demonstrate the application’s capabilities, we estimated hypertension statistics for US adults.
+
+#### Conclusions
+
+The application developed in the current study is publicly available and produced valid, transparent, and reproducible results.

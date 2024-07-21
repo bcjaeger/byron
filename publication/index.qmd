@@ -4,7 +4,8 @@ description: |
   <br>
   <br>
   This is home for my research publications, each linked with<br>
-  accompanying preprints, posters, and/or news pieces.
+  accompanying preprints, posters, and/or news pieces. <br>
+  A full list of my publications is available on [Google scholar](https://scholar.google.com/citations?user=4IKD_roAAAAJ&hl=en)
 listing: 
   contents: 
     - "**/index.qmd"
