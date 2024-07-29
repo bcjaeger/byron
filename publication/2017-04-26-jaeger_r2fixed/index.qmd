@@ -1,0 +1,23 @@
+---
+title: 'An $R^2$ statistic for fixed effects in the generalized linear mixed model'
+subtitle: 'Including semi-partial $R^2$ for individual predictors'
+author:
+- Jaeger, Byron C.
+- Edwards, Lloyd J.
+- Das, Kalyan
+- Sen, Pranab K.
+date: '2017-04-26'
+categories:
+  - Research
+links:
+- icon: file-richtext-fill
+  name: Publication
+  url: https://www.tandfonline.com/doi/full/10.1080/02664763.2016.1193725
+- icon: github
+  name: r2glmm package
+  url: https://github.com/bcjaeger/r2glmm
+---
+
+#### Abstract
+
+Measuring the proportion of variance explained ($R^2$) by a statistical model and the relative importance of specific predictors (semi-partial $R^2$) can be essential considerations when building a parsimonious statistical model. The $R^2$ statistic is a familiar summary of goodness-of-fit for normal linear models and has been extended in various ways to more general models. In particular, the generalized linear mixed model (GLMM) extends the normal linear model and is used to analyze correlated (hierarchical), non-normal data structures. Although various $R^2$ statistics have been proposed, there is no consensus in statistical literature for the most sensible definition of $R^2$ in this context. This research aims to build upon existing knowledge and definitions of $R^2$ and to concisely define the statistic for the GLMM. Here, we derive a model and semi-partial $R^2$ statistic for fixed (population) effects in the GLMM by utilizing the penalized quasi-likelihood estimation method based on linearization. We show that our proposed $R^2$ statistic generalizes the widely used marginal $R^2$ statistic introduced by Nakagawa and Schielzeth, demonstrate our statistics capability in model selection, show the utility of semi-partial $R^2$ statistics in longitudinal data analysis, and provide software that computes the proposed $R^2$ statistic along with semi-partial $R^2$ for individual fixed effects. The software provided is adapted for both SAS and R programming languages.

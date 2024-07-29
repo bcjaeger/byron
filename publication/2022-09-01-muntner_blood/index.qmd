@@ -1,0 +1,36 @@
+---
+title: 'Blood Pressure Control Among US Adults'
+subtitle: '2009 to 2012 Through 2017 to 2020'
+author:
+- Muntner, Paul
+- Miles, Miriam A.
+- Jaeger, Byron C.
+- Hannon Iii, Lonnie
+- Hardy, Shakia T.
+- Ostchega, Yechiam
+- Wozniak, Gregory
+- Schwartz, Joseph E.
+date: '2022-09-01'
+categories:
+  - Research
+links:
+- icon: file-richtext-fill
+  name: Publication
+  url: https://www.ahajournals.org/doi/10.1161/HYPERTENSIONAHA.122.19222
+---
+
+#### Background
+
+The National Health and Nutrition Examination Survey data indicate that the proportion of US adults with hypertension that had controlled blood pressure (BP) declined from 2013 to 2014 through 2017 to 2018. We analyzed data from National Health and Nutrition Examination Survey 2009 to 2012, 2013 to 2016, and 2017 to 2020 to confirm this finding. 
+
+#### Methods
+
+Hypertension was defined as systolic BP ≥140 mm Hg or diastolic BP ≥90 mm Hg or antihypertensive medication use. BP control among those with hypertension was defined as systolic BP ≥140 mm Hg and diastolic BP ≥90 mm Hg. 
+
+#### Results
+
+The age-adjusted prevalence of hypertension was 31.5% (95% CI, 30.3%–32.8%), 32.0% (95% CI, 30.6%–33.3%), and 32.9% (95% CI, 31.0%–34.7%) in 2009 to 2012, 2013 to 2016, and 2017 to 2020, respectively (P trend = 0.218). The age-adjusted prevalence of hypertension increased among non-Hispanic Asian adults from 27.0% in 2011 to 2012 to 33.5% in 2017 to 2020 (P trend = 0.003). Among Hispanic adults, the age-adjusted prevalence of hypertension increased from 29.4% in 2009 to 2012 to 33.2% in 2017 to 2020 ( P trend = 0.029). In 2009 to 2012, 2013 to 2016, and 2017 to 2020, 52.8% (95% CI, 50.0%–55.7%), 51.3% (95% CI, 47.9%–54.6%), and 48.2% (95% CI, 45.7%–50.8%) of US adults with hypertension had controlled BP (P trend = 0.034). Among US adults taking antihypertensive medication, 69.9% (95% CI, 67.8%–72.0%), 69.3% (95% CI, 66.6%–71.9%), and 67.7% (95% CI, 65.2%–70.3%) had controlled BP in 2009 to 2012, 2013 to 2016, and 2017 to 2020, respectively (P trend = 0.189). Among all US adults with hypertension and those taking antihypertensive medication, a decline in BP control between 2009 to 2012 and 2017 to 2020 occurred among those ≥75 years, women, and non-Hispanic black adults. 
+
+#### Conclusions
+
+These data confirm that the proportion of US adults with hypertension who have controlled BP has declined.

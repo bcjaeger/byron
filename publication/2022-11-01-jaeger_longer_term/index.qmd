@@ -61,7 +61,7 @@ Extended observational follow-up for mortality via the US National Death Index f
 
 #### Results
 
-Among 9361 randomized participants, the mean (SD) age was 67.9 (9.4) years, and 3332 (35.6%) were women. Over a median (IQR) intervention period of 3.3 (2.9-3.9) years, intensive treatment was beneficial for both cardiovascular mortality (hazard ratio [HR], 0.66; 95% CI, 0.49-0.89) and all-cause mortality (HR, 0.83; 95% CI, 0.68-1.01). However, at the median (IQR) total follow-up of 8.8 (8.3-9.3) years, there was no longer evidence of benefit for cardiovascular mortality (HR, 1.02; 95% CI, 0.84-1.24) or all-cause mortality (HR, 1.08; 95% CI, 0.94-1.23). In a subgroup of participants, the estimated mean outpatient SBP among participants randomized to intensive treatment increased from 132.8 mm Hg (95% CI, 132.0-133.7) at 5 years to 140.4 mm Hg (95% CI, 137.8-143.0) at 10 years following randomization.
+Among 9361 randomized participants, the mean (SD) age was 67.9 (9.4) years, and 3332 (35.6%) were women. Over a median (IQR) intervention period of 3.3 (2.9-3.9) years, intensive treatment was beneficial for both cardiovascular mortality (hazard ratio \[HR\], 0.66; 95% CI, 0.49-0.89) and all-cause mortality (HR, 0.83; 95% CI, 0.68-1.01). However, at the median (IQR) total follow-up of 8.8 (8.3-9.3) years, there was no longer evidence of benefit for cardiovascular mortality (HR, 1.02; 95% CI, 0.84-1.24) or all-cause mortality (HR, 1.08; 95% CI, 0.94-1.23). In a subgroup of participants, the estimated mean outpatient SBP among participants randomized to intensive treatment increased from 132.8 mm Hg (95% CI, 132.0-133.7) at 5 years to 140.4 mm Hg (95% CI, 137.8-143.0) at 10 years following randomization.
 
 #### Conclusions and Relevance
 

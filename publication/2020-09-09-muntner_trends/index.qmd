@@ -1,0 +1,23 @@
+---
+title: 'Trends in Blood Pressure Control Among US Adults With Hypertension'
+subtitle: '1999-2000 to 2017-2018'
+author:
+- Muntner, Paul
+- Hardy, Shakia T.
+- Fine, Lawrence J.
+- Jaeger, Byron C.
+- Wozniak, Gregory
+- Levitan, Emily B.
+- Colantonio, Lisandro D.
+date: '2020-09-09'
+categories:
+  - Research
+links:
+- icon: file-richtext-fill
+  name: Publication
+  url: https://doi.org/10.1001/jama.2020.14545
+---
+
+#### Abstract
+
+Controlling blood pressure (BP) reduces the risk for cardiovascular disease.To determine whether BP control among US adults with hypertension changed from 1999-2000 through 2017-2018.Serial cross-sectional analysis of National Health and Nutrition Examination Survey data, weighted to be representative of US adults, between 1999-2000 and 2017-2018 (10 cycles), including 18 262 US adults aged 18 years or older with hypertension defined as systolic BP level of 140 mm Hg or higher, diastolic BP level of 90 mm Hg or higher, or use of antihypertensive medication. The date of final data collection was 2018.Calendar year.Mean BP was computed using 3 measurements. The primary outcome of BP control was defined as systolic BP level lower than 140 mm Hg and diastolic BP level lower than 90 mm Hg.Among the 51 761 participants included in this analysis, the mean (SD) age was 48 (19) years and 25 939 (50.1%) were women; 43.2% were non-Hispanic White adults; 21.6%, non-Hispanic Black adults; 5.3%, non-Hispanic Asian adults; and 26.1%, Hispanic adults. Among the 18 262 adults with hypertension, the age-adjusted estimated proportion with controlled BP increased from 31.8% (95% CI, 26.9%-36.7%) in 1999-2000 to 48.5% (95% CI, 45.5%-51.5%) in 2007-2008 (P &lt; .001 for trend), remained stable and was 53.8% (95% CI, 48.7%-59.0%) in 2013-2014 (P = .14 for trend), and then declined to 43.7% (95% CI, 40.2%-47.2%) in 2017-2018 (P = .003 for trend). Compared with adults who were aged 18 years to 44 years, it was estimated that controlled BP was more likely among those aged 45 years to 64 years (49.7% vs 36.7%; multivariable-adjusted prevalence ratio, 1.18 \[95% CI, 1.02-1.37\]) and less likely among those aged 75 years or older (37.3% vs 36.7%; multivariable-adjusted prevalence ratio, 0.81 \[95% CI, 0.65-0.97\]). It was estimated that controlled BP was less likely among non-Hispanic Black adults vs non-Hispanic White adults (41.5% vs 48.2%, respectively; multivariable-adjusted prevalence ratio, 0.88; 95% CI, 0.81-0.96). Controlled BP was more likely among those with private insurance (48.2%), Medicare (53.4%), or government health insurance other than Medicare or Medicaid (43.2%) vs among those without health insurance (24.2%) (multivariable-adjusted prevalence ratio, 1.40 \[95% CI, 1.08-1.80\], 1.47 \[95% CI, 1.15-1.89\], and 1.36 \[95% CI, 1.04-1.76\], respectively). Controlled BP was more likely among those with vs those without a usual health care facility (48.4% vs 26.5%, respectively; multivariable-adjusted prevalence ratio, 1.48 \[95% CI, 1.13-1.94\]) and among those who had vs those who had not had a health care visit in the past year (49.1% vs 8.0%; multivariable-adjusted prevalence ratio, 5.23 \[95% CI, 2.88-9.49\]).In a series of cross-sectional surveys weighted to be representative of the adult US population, the prevalence of controlled BP increased between 1999-2000 and 2007-2008, did not significantly change from 2007-2008 through 2013-2014, and then decreased after 2013-2014.

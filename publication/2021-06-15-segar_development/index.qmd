@@ -1,0 +1,47 @@
+---
+title: 'Development and Validation of Machine Learning–Based Race-Specific Models to Predict 10-Year Risk of Heart Failure'
+subtitle: 'A Multicohort Analysis'
+author:
+- Segar, Matthew W.
+- Jaeger, Byron C.
+- Patel, Kershaw V.
+- Nambi, Vijay
+- Ndumele, Chiadi E.
+- Correa, Adolfo
+- Butler, Javed
+- Chandra, Alvin
+- Ayers, Colby
+- Rao, Shreya
+- Lewis, Alana A.
+- Raffield, Laura M.
+- Rodriguez, Carlos J.
+- Michos, Erin D.
+- Ballantyne, Christie M.
+- Hall, Michael E.
+- Mentz, Robert J.
+- De Lemos, James A.
+- Pandey, Ambarish
+date: '2021-06-15'
+categories:
+  - Research
+links:
+- icon: file-richtext-fill
+  name: Publication
+  url: https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.120.053134
+---
+
+#### Background
+
+Heart failure (HF) risk and the underlying risk factors vary by race. Traditional models for HF risk prediction treat race as a covariate in risk prediction and do not account for significant parameters such as cardiac biomarkers. Machine learning (ML) may offer advantages over traditional modeling techniques to develop race-specific HF risk prediction models and to elucidate important contributors of HF development across races.
+
+#### Methods
+
+We performed a retrospective analysis of 4 large, community cohort studies (ARIC \[Atherosclerosis Risk in Communities\], DHS \[Dallas Heart Study\], JHS \[Jackson Heart Study\], and MESA \[Multi-Ethnic Study of Atherosclerosis\]) with adjudicated HF events. The study included participants who were \>40 years of age and free of HF at baseline. Race-specific ML models for HF risk prediction were developed in the JHS cohort (for Black race–specific model) and White adults from ARIC (for White race–specific model). The models included 39 candidate variables across demographic, anthropometric, medical history, laboratory, and electrocardiographic domains. The ML models were externally validated and compared with prior established traditional and non–race-specific ML models in race-specific subgroups of the pooled MESA/DHS cohort and Black participants of ARIC. The Harrell C-index and Greenwood-Nam-D'Agostino chi-square tests were used to assess discrimination and calibration, respectively.
+
+#### Results
+
+The ML models had excellent discrimination in the derivation cohorts for Black (n = 4141 in JHS, C-index = 0.88) and White (n = 7858 in ARIC, C-index = 0.89) participants. In the external validation cohorts, the race-specific ML model demonstrated adequate calibration and superior discrimination (Black individuals, C-index = 0.80–0.83; White individuals, C-index = 0.82) compared with established HF risk models or with non–race-specific ML models derived with race included as a covariate. Among the risk factors, natriuretic peptide levels were the most important predictor of HF risk across both races, followed by troponin levels in Black and ECG-based Cornell voltage in White individuals. Other key predictors of HF risk among Black individuals were glycemic parameters and socioeconomic factors. In contrast, prevalent cardiovascular disease and traditional cardiovascular risk factors were stronger predictors of HF risk in White adults.
+
+#### Conclusions
+
+Race-specific and ML-based HF risk models that integrate clinical, laboratory, and biomarker data demonstrated superior performance compared with traditional HF risk and non–race-specific ML models. This approach identifies distinct race-specific contributors of HF.

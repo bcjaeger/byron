@@ -1,0 +1,47 @@
+---
+title: 'Trends in blood pressure and hypertension among US children and adolescents'
+subtitle: '1999-2000 to 2017-2018'
+author:
+- Hardy, Shakia T.
+- Sakhuja, Swati
+- Jaeger, Byron C.
+- Urbina, Elaine M.
+- Suglia, Shakira F.
+- Feig, Daniel I.
+- Muntner, Paul
+date: '2021-04-01'
+categories:
+  - Research
+links:
+- icon: file-richtext-fill
+  name: Publication
+  url: https://jamanetwork.com/journals/jamanetworkopen/article-abstract/2778082
+---
+
+#### Importance 
+
+Higher blood pressure (BP) levels in children are associated with an increased risk for hypertension and subclinical cardiovascular disease in adulthood. Identifying trends in BP could inform the need for interventions to lower BP.
+
+#### Objective
+
+To determine whether systolic BP (SBP) and diastolic BP (DBP) levels among US children have changed during the past 20 years.
+
+#### Design, Setting, and Participants  
+
+This serial cross-sectional analysis of National Health and Nutrition Examination Survey data included 9117 children aged 8 to 12 years and 10156 adolescents aged 13 to 17 years, weighted to the US population from 1999-2002 to 2015-2018. Data were collected from March 1999 to December 2018 and analyzed from March 26, 2020, to February 2, 2021.
+
+#### Exposures
+
+Calendar year
+
+#### Main Outcomes and Measures  
+
+The primary outcomes were mean SBP and mean DBP.
+
+#### Results  
+
+A total of 19 273 participants were included in the analysis. Among children aged 8 to 12 years in 2015-2018 (mean age, 10.5 [95% CI, 10.5-10.6] years), 48.7% (95% CI, 45.2%-52.2%) were girls and 51.3% (95% CI, 47.8%-54.8%) were boys; 49.7% (95% CI, 42.2%-57.1%) were non-Hispanic White; 13.7% (95% CI, 10.3%-18.1%) were non-Hispanic Black; 25.5% (95% CI, 19.9%-32.0%) were Hispanic; 4.7% (95% CI, 3.2%-6.7%) were non-Hispanic Asian; and 6.5% (95% CI, 4.9%-8.5%) were other non-Hispanic race/ethnicity. Among those aged 13 to 17 years in 2015-2018 (mean age, 15.5 [95% CI, 15.5-15.5] years), 49.1% (95% CI, 46.1%-52.2%) were girls and 50.9% (95% CI, 47.8%-53.9%) were boys; 53.3% (95% CI, 46.4%-60.1%) were non-Hispanic White; 13.9% (95% CI, 10.3%-18.7%) were non-Hispanic Black; 21.9% (95% CI, 16.6%-28.2%) were Hispanic; 4.6% (95% CI, 3.2%-6.5%) were non-Hispanic Asian; and 6.3% (95% CI, 4.7%-8.5%) were other non-Hispanic race/ethnicity. Among children aged 8 to 12 years, age-adjusted mean SBP decreased from 102.4 (95% CI, 101.7-103.1) mm Hg in 1999-2002 to 101.5 (95% CI, 100.8-102.2) mm Hg in 2011-2014 and then increased to 102.5 (95% CI, 101.9-103.2) mm Hg in 2015-2018. Age-adjusted mean DBP decreased from 57.2 (95% CI, 56.5-58.0) mm Hg in 1999-2002 to 51.9 (95% CI, 50.1-53.7) mm Hg in 2011-2014 and increased to 53.2 (95% CI, 52.2-54.1) mm Hg in 2015-2018. Among adolescents aged 13 to 17 years, age-adjusted mean SBP decreased from 109.2 (95% CI, 108.7-109.7) mm Hg in 1999-2002 to 108.4 (95% CI, 107.8-109.1) mm Hg in 2011-2014 and remained unchanged in 2015-2018 (108.4 [95% CI, 107.8-109.1] mm Hg). Mean DBP decreased from 62.6 (95% CI, 61.7-63.5) mm Hg in 1999-2002 to 59.6 (95% CI, 58.2-60.9) mm Hg in 2011-2014 and then increased to 60.8 (95% CI, 59.8-61.7) mm Hg in 2015-2018. Among children aged 8 to 12 years, mean SBP was 3.2 (95% CI, 1.7-4.6) mm Hg higher among those with overweight and 6.8 (95% CI, 5.6-8.1) mm Hg higher among those with obesity compared with normal weight; mean DBP was 3.2 (95% CI, 0.7-5.6) mm Hg higher among those with overweight and 3.5 (95% CI, 1.9- 5.1) mm Hg higher among those with obesity compared with normal weight. Among adolescents aged 13 to 17 years, mean SBP was 3.5 (95% CI 1.9-5.1) mm Hg higher among those with overweight and 6.6 (95% CI, 5.2-8.0) mm Hg higher among those with obesity compared with normal weight, 4.8 (95% CI, 3.8-5.8) mm Hg higher among boys compared with girls, and 3.0 (95% CI, 1.7-4.3) mm Hg higher among non-Hispanic Black compared with non-Hispanic White participants.
+
+#### Conclusions and Relevance  
+
+Despite an overall decline in mean SBP and DBP from 1999-2002 to 2015-2018, BP levels among children and adolescents may have increased from 2011-2014 to 2015-2018.

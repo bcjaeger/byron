@@ -21,6 +21,9 @@ links:
 - icon: github
   name: Code
   url: https://github.com/bcjaeger/aorsf-bench
+- icon: github
+  name: aorsf package
+  url: https://github.com/ropensci/aorsf
 ---
 
 #### Background
