@@ -59,7 +59,7 @@ links:
 
 pub_move <- function(fpath, delete = FALSE, overwrite = FALSE){
 
- destination <- glue("dev/publication/{basename(fpath)}")
+ destination <- glue("publication/{basename(fpath)}")
 
  if(!dir.exists(destination)) dir.create(destination)
 
@@ -82,12 +82,12 @@ for(i in seq(nrow(me))){
 
  ref <- as.list(slice(me, i))
 
- pub_write(ref, overwrite = TRUE)
+ pub_write(ref, overwrite = FALSE)
 
 }
 
 
 
-
+pub_move("dev/publication/2019-09-01-jaeger_oblique/")
 
 

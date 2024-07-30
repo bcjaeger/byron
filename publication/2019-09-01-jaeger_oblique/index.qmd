@@ -1,0 +1,29 @@
+---
+title: 'Oblique random survival forests'
+subtitle: "The first ORSF paper"
+author:
+- Jaeger, Byron C.
+- Long, D. Leann
+- Long, Dustin M.
+- Sims, Mario
+- Szychowski, Jeff M.
+- Min, Yuan-I.
+- Mcclure, Leslie A.
+- Howard, George
+- Simon, Noah
+date: '2019-09-01'
+categories:
+  - Research
+links:
+- icon: file-richtext-fill
+  name: Publication
+  url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9875945/
+---
+
+#### Superceded
+
+This article introduced the `obliqueRSF` R Package, but the `aorsf` package is what I'd recommend using now.
+
+#### Abstract
+
+We introduce and evaluate the oblique random survival forest (ORSF). The ORSF is an ensemble method for right-censored survival data that uses linear combinations of input variables to recursively partition a set of training data. Regularized Cox proportional hazard models are used to identify linear combinations of input variables in each recursive partitioning step. Benchmark results using simulated and real data indicate that the ORSF’s predicted risk function has high prognostic value in comparison to random survival forests, conditional inference forests, regression and boosting. In an application to data from the Jackson Heart Study, we demonstrate variable and partial dependence using the ORSF and highlight characteristics of its ten-year predicted risk function for atherosclerotic cardiovascular disease events (ASCVD; stroke, coronary heart disease). We present visualizations comparing variable and partial effect estimation according to the ORSF, the conditional inference forest, and the Pooled Cohort Risk equations. The obliqueRSF R package, which provides functions to fit the ORSF and create variable and partial dependence plots, is available on the comprehensive R archive network (CRAN).
