@@ -1,0 +1,40 @@
+---
+title: 'Analysis of cardiorespiratory fitness in early adulthood and midlife with all-cause mortality and fatal or nonfatal cardiovascular disease'
+author:
+- Gabriel, Kelley Pettee
+- Jaeger, Byron C.
+- Lewis, Cora E.
+- Sidney, Stephen
+- Dooley, Erin E.
+- Carnethon, Mercedes R.
+- Jacobs, David R.
+- Hornikel, Bjoern
+- Reis, Jared P.
+- Schreiner, Pamela J.
+date: '2023-02-01'
+categories:
+  - Research
+  - Exercise
+  - Cardiovascular disease
+links:
+- icon: file-richtext-fill
+  name: Publication
+  url: https://jamanetwork.com/journals/jamanetworkopen/article-abstract/2801789
+---
+
+#### Abstract
+
+**Importance:** Optimizing cardiovascular fitness is a prevention strategy against premature death and cardiovascular disease (CVD) events. Since this evidence has largely been established in older populations, the importance of cardiorespiratory fitness during earlier periods of adulthood remains unclear.
+
+**Objective:** To examine the association of early-adulthood cardiorespiratory fitness and percentage of early-adulthood cardiorespiratory fitness retained during midlife with subsequent risk of all-cause mortality and CVD-related morbidity and mortality overall as well as by sex and race.
+
+**Design, setting, and participants:** This retrospective population-based cohort study analyzed data from the Coronary Artery Risk Development in Young Adults (CARDIA) study, an ongoing prospective cohort study conducted at field center clinics in Birmingham, Alabama; Chicago, Illinois; Minneapolis, Minnesota; and Oakland, California. Participants in the CARDIA study were aged 18 to 30 years when they completed the baseline graded exercise test protocol in 1985 to 1986 and have since undergone follow-up examinations biannually and every 2 to 5 years. Data were collected through August 31, 2020, and were analyzed in October 2022.
+
+**Exposures:** Cardiorespiratory fitness was estimated from a symptom-limited, maximal graded exercise test protocol conducted at baseline and at year 7 and year 20 follow-up examinations.
+
+**Main outcomes and measures:** All-cause mortality and combined fatal and nonfatal CVD events were obtained since year 20 of follow-up examinations through August 31, 2020. Cox proportional hazards regression models were used to estimate hazard ratios (HRs) for each primary exposure with each outcome.
+
+**Results:** A total of 4808 participants (mean \[SD\] age at baseline, 24.8 \[3.7\] years; 2670 females \[56%\]; 2438 Black individuals \[51%\]) were included in the sample. During 68 751 person-years of follow-up, there were 302 deaths (6.3%) and 274 CVD events (5.7%) since year 20. Every 1-minute increment in cardiorespiratory fitness at baseline was associated with a lower risk of all-cause mortality in females (HR, 0.73; 95% CI, 0.64-0.82) and males (HR, 0.87; 95% CI, 0.80-0.96). Every 5% increment in cardiorespiratory fitness retained through year 20 was associated with a lower risk of all-cause mortality (HR, 0.89; 95% CI, 0.79-0.99), but no evidence of effect modification by race or sex was found. Every 1-minute increment in cardiorespiratory fitness at baseline was associated with a lower risk of fatal or nonfatal CVD (HR, 0.89; 95% CI, 0.82-0.96), and the estimated HR per 5% increment in cardiorespiratory fitness retained throughout midlife was 0.89 (95% CI, 0.78-1.00), with no evidence for interaction by race or sex.
+
+**Conclusions and relevance:** This cohort study found that higher early-adulthood cardiorespiratory fitness and greater retention of early-adulthood cardiorespiratory fitness throughout midlife were associated with a lower risk of premature death and CVD events. Additional research is needed to clarify the association of cardiorespiratory fitness timing across the life course with risk of clinical outcomes.
+

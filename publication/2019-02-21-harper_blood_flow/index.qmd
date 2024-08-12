@@ -1,0 +1,27 @@
+---
+title: 'Blood-flow restriction resistance exercise for older adults with knee osteoarthritis: a pilot randomized clinical trial'
+author:
+- Harper, Sara A.
+- Roberts, Lisa M.
+- Layne, Andrew S.
+- Jaeger, Byron C.
+- Gardner, Anna K.
+- Sibille, Kimberly T.
+- Wu, Samuel S.
+- Vincent, Kevin R.
+- Fillingim, Roger B.
+- Manini, Todd M.
+date: '2019-02-21'
+categories:
+  - Research
+  - Exercise
+  - Pilot study
+links:
+- icon: file-richtext-fill
+  name: Publication
+  url: https://www.mdpi.com/2077-0383/8/2/265
+---
+
+#### Abstract
+
+In a pilot randomized clinical trial, participants aged ≥60 years (*n* = 35) with physical limitations and symptomatic knee osteoarthritis (OA) were randomized to 12 weeks of lower-body low-load resistance training with blood-flow restriction (BFR) or moderate-intensity resistance training (MIRT) to evaluate changes in muscle strength, pain, and physical function. Four exercises were performed three times per week to volitional fatigue using 20% and 60% of one repetition maximum (1RM). Study outcomes included knee extensor strength, gait speed, Short Physical Performance Battery (SPPB) performance, and pain via the Western Ontario and McMaster Universities OA Index (WOMAC). Per established guidance for pilot studies, primary analyses for the trial focused on safety, feasibility, and effect sizes/95% confidence intervals of dependent outcomes to inform a fully-powered trial. Across three speeds of movement, the pre- to post-training change in maximal isokinetic peak torque was 9.96 (5.76, 14.16) Nm while the mean difference between groups (BFR relative to MIRT) was -1.87 (-10.96, 7.23) Nm. Most other directionally favored MIRT, though more spontaneous reports of knee pain were observed (*n* = 14) compared to BFR (*n* = 3). BFR may have lower efficacy than MIRT in this context-though a fully-powered trial is needed to definitively address this hypothesis.

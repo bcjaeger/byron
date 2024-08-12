@@ -1,0 +1,34 @@
+---
+title: 'Prevalence of Activity Limitations and Association with Multimorbidity Among US Adults 50 to 64 Years Old'
+author:
+- Bowling, C. Barrett
+- Deng, Luqin
+- Sakhuja, Swati
+- Morey, Miriam C.
+- Jaeger, Byron C.
+- Muntner, Paul
+date: '2019-11-01'
+categories:
+  - Research
+  - NHANES
+links:
+- icon: file-richtext-fill
+  name: Publication
+  url: http://link.springer.com/10.1007/s11606-019-05244-8
+---
+
+#### Abstract
+
+**Background:** Functional limitations may be more common in middle-aged adults than previously recognized. However, there are few published data on the prevalence of activity limitations, and their association with multimorbidity, among adults 50 to 64 years old.
+
+**Objective:** To describe the prevalence of activity limitations and the association with multimorbidity in middle-aged adults.
+
+**Design:** Cross-sectional analysis of US population-based National Health and Nutrition Examination Survey (NHANES) 2011-2016.
+
+**Participants:** The total number of community-dwelling NHANES participants aged 50-64 years old is 4217.
+
+**Main measures:** Chronic conditions included hypertension, high cholesterol, diabetes mellitus, obesity, chronic kidney disease, cancer, stroke, coronary heart disease, heart failure, chronic obstructive pulmonary disease/asthma, arthritis, and depression. Activity limitations were defined as any difficulty within each of four International Classification of Functioning (ICF) domains: functional limitations (kneeling, carrying, standing, sitting, reaching, grasping, pulling), mobility (walking ¼ mile, climbing 10 steps), basic activities of daily living (BADLs; walking, transferring, eating, dressing), and instrumental activities of daily living (IADLs; finances, chores, cooking). We calculated prevalence ratios for activity limitations using generalized estimating equations.
+
+**Key results:** The prevalence of functional limitations, mobility limitations, BADL difficulty, and IADL difficulty was 34%, 11%, 15%, and 17%, respectively. Seventy-two percent of participants had two or more chronic conditions; 23% had two, 18% had three, 15% had four, and 16% had five or more. Multivariable adjusted prevalence ratios (95% CI) for functional limitations among those with 2, 3, 4, and 5 or more chronic conditions, compared with 0-1 conditions, were 1.94 (1.43-2.63), 2.50 (1.93-3.23), 3.26 (2.48-4.27), and 4.54 (3.48-5.93), respectively (p trend \< 0.001). Larger prevalence ratios at a higher number of chronic conditions were present for mobility limitations, BADL difficulty, and IADL difficulty.
+
+**Conclusions:** Problems with function are not limited to older adults and multimorbidity may be helpful for identifying middle-aged adults with a high prevalence of activity limitations.

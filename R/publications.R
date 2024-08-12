@@ -15,7 +15,7 @@ me <- bib2df(file = 'dev/publication/byron.bib') %>%
 pub_write <- function(ref, overwrite = FALSE){
 
  if(!is.Date(ref$date)) stop("fix date for ", ref$bibtexkey)
- if(!str_detect(ref$url, "^https")) stop("fix url for ", ref$bibtexkey)
+ if(!str_detect(ref$url, "^http")) stop("fix url for ", ref$bibtexkey)
 
  index_string <- "
 ---
@@ -78,6 +78,8 @@ pub_move <- function(fpath, delete = FALSE, overwrite = FALSE){
 
 }
 
+me
+
 for(i in seq(nrow(me))){
 
  ref <- as.list(slice(me, i))
@@ -87,7 +89,5 @@ for(i in seq(nrow(me))){
 }
 
 
-
-pub_move("dev/publication/2019-09-01-jaeger_oblique/")
 
 
