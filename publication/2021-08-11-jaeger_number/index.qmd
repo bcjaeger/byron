@@ -1,0 +1,28 @@
+---
+title: 'Number and timing of ambulatory blood pressure monitoring measurements'
+author:
+- Jaeger, Byron C.
+- Akinyelure, Oluwasegun P.
+- Sakhuja, Swati
+- Bundy, Joshua D.
+- Lewis, Cora E.
+- Yano, Yuichiro
+- Howard, George
+- Shimbo, Daichi
+- Muntner, Paul
+- Schwartz, Joseph E.
+date: '2021-08-11'
+categories:
+  - Research
+  - Ambulatory blood pressure monitoring
+  - Jackson Heart Study
+  - Coronary Artery Risk Development in Young Adults
+links:
+- icon: file-richtext-fill
+  name: Publication
+  url: https://www.nature.com/articles/s41440-021-00717-y
+---
+
+#### Abstract
+
+Ambulatory blood pressure (BP) monitoring (ABPM) may cause sleep disturbances. Some home BP monitoring (HBPM) devices obtain a limited number of BP readings during sleep and may be preferred to ABPM. It is unclear how closely a few BP readings approximate a full night of ABPM. We used data from the Jackson Heart (N=621) and Coronary Artery Risk Development in Young Adults (N=458) studies to evaluate 74 sampling approaches to estimate BP during sleep. We sampled 2 to 4 BP measurements at specific times from a full night of ABPM and computed chance-corrected agreement (i.e., Kappa) of nocturnal hypertension (i.e., mean asleep systolic BP≥120 mmHg or diastolic BP≥70 mmHg) defined using the full night of ABPM and subsets of BP readings. Measuring BP at 2, 3, and 4 hours after falling asleep, an approach applied by some HBPM devices, obtained a Kappa of 0.81 (95% confidence interval \[CI\]: 0.78, 0.85). The highest Kappa was obtained by measuring BP at 1, 2, 4, and 5 hours after falling asleep: 0.84 (95% CI: 0.81, 0.87). In conclusion, measuring BP 3 or 4 times during sleep may have high agreement with nocturnal hypertension status based on a full night of ABPM.
