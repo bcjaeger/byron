@@ -3,6 +3,8 @@ project:
 
 website:
   title: "Byron Jaeger"
+  drafts:
+    - blog/posts/2024-08-17_aorsf-survival.qmd
   navbar:
     left:
       - href: index.qmd
@@ -15,6 +17,8 @@ website:
         text: Publications
       - href: talk/index.qmd
         text: Talks
+      - href: blog/index.qmd
+        text: Blog
 
 
 format:

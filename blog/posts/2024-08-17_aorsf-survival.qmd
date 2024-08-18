@@ -1,0 +1,294 @@
+---
+title: "Using aorsf in tidymodels"
+description: "An example using survival analysis"
+author: "Byron C Jaeger"
+date: "2024-08-17"
+categories:
+  - oblique random forests
+format:
+  html:
+    df-print: paged
+---
+
+I attended `posit::conf(2024)` and *loved* the "What’s new in tidymodels?" session. The big news from this session is that `tidymodels` now has full support for survival models thanks to the `censored` package and a number of updates to adjacent packages like `yardstick` and `tune`. This blog post 
+
+## Primary ciliary cholangitis (PBC) data
+
+The following description is adapted from the `pbc` help page in the `survival` package:
+
+> Primary biliary cholangitis (PBC) is an autoimmune disease leading to destruction of the small bile ducts in the liver. This data is from the Mayo Clinic trial in PBC conducted between 1974 and 1984. A total of 424 PBC patients, referred to Mayo Clinic during that ten-year interval, met eligibility criteria for the randomized placebo controlled trial of the drug D-penicillamine. The first 312 cases in the data set participated in the randomized trial and contain largely complete data. The additional 112 cases did not participate in the clinical trial, but consented to have basic measurements recorded and to be followed for survival. Six of those cases were lost to follow-up shortly after diagnosis, so the data here are on an additional 106 cases as well as the 312 randomized participants.
+
+The data dictionary is also copied from `survival`'s documentation:
+
+- `id`:	case number
+
+- `age`:	in years
+
+- `albumin`:	serum albumin (g/dl)
+
+- `alk.phos`:	alkaline phosphotase (U/liter)
+
+- `ascites`:	presence of ascites
+
+- `ast`:	aspartate aminotransferase (U/ml)
+
+- `bili`:	serum bilirunbin (mg/dl)
+
+- `chol`:	serum cholesterol (mg/dl)
+
+- `copper`:	urine copper (ug/day)
+
+- `edema`:	0 no edema, 0.5 untreated or successfully treated 1 edema despite diuretic therapy
+
+- `hepato`:	presence of hepatomegaly or enlarged liver
+
+- `platelet`:	platelet count
+
+- `protime`:	standardised blood clotting time
+
+- `sex`:	m/f
+
+- `spiders`:	blood vessel malformations in the skin
+
+- `stage`:	histologic stage of disease (needs biopsy)
+
+- `status`:	status at endpoint, 0/1/2 for censored, transplant, dead
+
+- `time`:	number of days between registration and the earlier of death, transplantation, or study analysis in July, 1986
+
+- `trt`:	1/2/NA for D-penicillmain, placebo, not randomised
+
+- `trig`:	triglycerides (mg/dl)
+
+
+```{r, message=FALSE}
+
+library(tidymodels)
+library(tidyverse)
+library(survival)
+library(censored)
+
+pbc
+
+```
+
+As preliminary steps, we'll 
+
+1. modify the `status` column so that patients who receive transplants are censored at the time of transplant, meaning our primary outcome will be transplant-free survival time.
+
+2. convert discrete variables into factors
+
+3. create a `Surv` object using columns `time` and `status`. 
+
+4. drop `id` plus the original `time` and `status` columns from the data so that our models won't be able to use them as predictors.
+
+```{r}
+
+data_analysis <- pbc %>% 
+ drop_na(time, status) %>%
+ mutate(
+  # step 1
+  status = case_when(
+   status <= 1 ~ 0, # code transplant as censored 
+   status == 2 ~ 1  # convert status to a 0/1 column
+  ),
+  # step 2
+  across(.cols = c(sex, ascites, hepato, spiders, edema, trt, stage),
+         .fns = factor),
+  # step 3
+  surv = Surv(time, status)
+ ) %>%
+ relocate(surv, .before = 1) %>%
+ # step 4
+ select(-id, -time, -status)
+
+data_analysis
+
+```
+
+## Data splitting
+
+We're conducting a benchmark to compare modeling approaches, so we will create a resampling object to do cross-validation.
+
+```{r}
+
+set.seed(329)
+
+data_resamples <- vfold_cv(data_analysis)
+
+```
+
+## Recipes
+
+We'll begin with recipes for the workflows. In some cases, decisions about pre-processing steps can be more impactful on the accuracy of a final model than decisions about the model. Let's say we want to consider several potential pre-processing recipes, but we also have specific steps that we want all recipes to start with and end with. Using `expand_grid` coupled with `mutate` and `pmap` can make this complicated process a little more clear. First we just create a blueprint to hold the recipes:
+
+```{r}
+
+recipes_init <- expand_grid(
+ boxcox = c(TRUE, FALSE),
+ pca = c(0, 3, 5)
+)
+
+recipes_init
+
+```
+
+Next we use `mutate` and `pmap` to go through the specifications row by row and add steps in the sequence we'd like to, based on parameters in the current row. This may be overkill if you only have two potential recipes to compare. But, if you're comparing a lot of different potential pre-processing approaches, it can really pay off to make a recipe generating function.
+
+```{r}
+
+recipes_data <- recipes_init %>%
+ mutate(
+  recipe = pmap(
+   .l = list(boxcox, pca),
+   .f = function(use_boxcox, use_pca){
+    
+    # basic steps for all recipes
+    rec_init <- recipe(surv ~ ., data = data_analysis) %>%
+     step_impute_mean(all_numeric_predictors()) %>%
+     step_impute_mode(all_nominal_predictors())
+
+    # conditional step based on row inputs    
+    if(use_boxcox){
+     rec_init <- rec_init %>%
+      step_BoxCox(all_numeric_predictors()) 
+    }
+    
+    # conditional step based on row inputs
+    if(use_pca > 0){
+     rec_init <- rec_init %>%
+      step_pca(all_numeric_predictors(), 
+               num_comp = use_pca)
+    }
+    
+    # final step for all recipes
+    rec_init %>%
+     step_dummy(all_nominal_predictors())
+    
+   }
+  )
+ )
+
+recipes_data
+
+```
+
+Last, recode some data and coerce the recipe data into a list that can become part of a larger set of workflows.
+
+```{r}
+
+recipes_list <- recipes_data %>% 
+ mutate(boxcox = factor(boxcox, labels = c("box_no", "box_all")),
+        pca = factor(pca, labels = c("pca_no", "pca_3", "pca_5"))) %>%
+ unite(col = 'name', boxcox, pca) %>%
+ deframe()
+
+recipes_list$box_all_pca_no
+
+```
+
+## Model specifications
+
+Let's use a variety of modeling strategies and use basic tuning where we can. It never hurts to explore your options, right?
+
+```{r}
+
+ph_surv_spec <- proportional_hazards() %>%
+ set_engine("survival") %>% 
+ set_mode("censored regression") 
+
+ph_glmnet_spec <- proportional_hazards(penalty = tune(), 
+                                       mixture = 1) %>%
+ set_engine("glmnet") %>% 
+ set_mode("censored regression") 
+
+survreg_spec <- survival_reg() %>%
+ set_engine("survival") %>% 
+ set_mode("censored regression") 
+
+rpart_spec <- decision_tree(tree_depth = tune()) %>% 
+ set_engine("rpart") %>% 
+ set_mode("censored regression")
+
+aorsf_spec <- rand_forest(min_n = tune()) %>% 
+ set_engine("aorsf") %>% 
+ set_mode("censored regression")
+
+mboost_spec <- boost_tree() %>% 
+ set_engine("mboost") %>% 
+ set_mode("censored regression")
+
+```
+
+## Workflows
+
+```{r}
+
+wflow_sets <- recipes_list %>% 
+ workflow_set(
+  models = list(ph_surv = ph_surv_spec,
+                ph_glmnet = ph_glmnet_spec,
+                survreg = survreg_spec,
+                rpart = rpart_spec,
+                aorsf = aorsf_spec,
+                mboost = mboost_spec)
+ )
+
+wflow_sets
+
+```
+
+
+## Fitting resamples
+
+```{r}
+
+# library(future)
+# local_options(parallelly.fork.enable = TRUE)
+# plan(multicore, workers = 5)
+# 
+# survival_metrics <- metric_set(brier_survival,
+#                                roc_auc_survival,
+#                                brier_survival_integrated)
+# 
+# evaluation_time_points <- seq(500, 3000, length.out = 100)
+# 
+# benchmark <- workflow_map(
+#  object = wflow_sets,
+#  fn = 'tune_grid',
+#  resamples = data_resamples,
+#  verbose = TRUE,
+#  metrics = survival_metrics,
+#  eval_time = evaluation_time_points,
+#  control = control_resamples(save_pred = TRUE)
+# )
+
+```
+
+
+```{r}
+
+# collect the best performing specification from each of the 36 workflows
+# based on the integrated brier score
+
+# top_specs <- collect_metrics(benchmark) %>% 
+#  filter(.metric == "brier_survival_integrated") |> 
+#  as_tibble() |> 
+#  group_by(wflow_id) |> 
+#  arrange(mean) |> 
+#  slice(1)
+# 
+# 
+# ggplot(top_specs) +
+#  aes(x = reorder(wflow_id, mean), 
+#      y = mean, 
+#      ymin = mean - 1.96 * std_err,
+#      ymax = mean + 1.96 * std_err) + 
+#  geom_pointrange() +
+#  labs(x = "", y = "Mean integrated brier score") + 
+#  coord_flip()
+
+```
+
+
+
