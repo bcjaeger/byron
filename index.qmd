@@ -17,7 +17,7 @@ about:
 page-layout: full
 
 execute: 
-  freeze: false
+  freeze: true
   echo: false
   warning: false
 
