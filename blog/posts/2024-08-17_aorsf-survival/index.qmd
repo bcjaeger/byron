@@ -11,7 +11,6 @@ format:
   html:
     df-print: paged
     toc: true
-    embed-resources: true
 ---
 
 I attended `posit::conf(2024)` and *loved* the "What’s new in tidymodels?" session as well as the talk given by Charlie Gao and Will Landau, which demonstrated how to speed up `targets` pipelines with the help of `mirai` and `crew`. Two news items came from these talks:
@@ -24,7 +23,7 @@ This blog post will show how to combine the survival framework of `tidymodels` w
 
 ## Reproducing this post
 
-This blog post is based on a `targets` pipeline that you can clone and run yourself, available at https://github.com/bcjaeger/targets-tidymodels. You can also run \`usethis::create_from_github("bcjaeger/targets-tidymodels") to clone the project and open it locally.
+This blog post is based on a `targets` pipeline that you can clone and run yourself, available at https://github.com/bcjaeger/targets-tidymodels. You can also run `usethis::create_from_github("bcjaeger/targets-tidymodels")` to clone the project and open it locally.
 
 ## Primary ciliary cholangitis (PBC) data
 
