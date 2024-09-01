@@ -17,6 +17,8 @@ website:
         text: Talks
       - href: blog/index.qmd
         text: Blog
+      - href: https://bcjaeger.github.io/cv/
+        text: CV
 
 
 format:

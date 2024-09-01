@@ -14,7 +14,7 @@ about:
 
 ## Hello, and thanks for visiting!
 
-I'm a biostatistician and data scientist in the [Wake Forest University School of Medicine](https://school.wakehealth.edu/) 
+I'm a biostatistician and data scientist in the [Wake Forest University School of Medicine](https://school.wakehealth.edu/)
 
 ## Research
 
@@ -23,5 +23,3 @@ My research interests include random forests, prediction modeling, blood pressur
 ## Teaching
 
 I love to teach and learn new things. I'm currently teaching THSS 730: Introduction to Biostatistics. A few other teaching activities are my [workshop on random forests for prediction and inference](https://bcjaeger.github.io/melodem-apoe4-het/), my [demo of the aorsf package](https://www.youtube.com/watch?v=LJoGmQapvf0), and my all-time favorite class, [Introduction to R](http://bst680.rbind.io/).
-
-
