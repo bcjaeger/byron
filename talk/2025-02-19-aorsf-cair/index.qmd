@@ -1,0 +1,19 @@
+---
+title: "Oblique Random Forests"
+subtitle: "Making Leo Breiman’s Masterpiece Accessible and Interpretable with `aorsf`"
+author: Byron Jaeger
+date: 2025-02-19
+categories:
+  - Research 
+  - Machine Learning
+  - Random Forests
+links:
+- icon: files
+  name: Slides
+  url: https://bcjaeger.github.io/seminar-aorsf-cair/#/title-slide
+- icon: github
+  name: Code
+  url: https://github.com/bcjaeger/seminar-aorsf-cair
+---
+
+*The random forest (RF) is an ensemble learning method comprising a large number of decision trees. Trees in the RF can be grown using a single variable to create new branches (axis-based) or using a linear combinations of variables (oblique). The oblique RF (i.e., a RF grown using oblique trees) was introduced in Leo Breiman’s seminal paper on random forests, where he noted that the oblique RF compared more favorably to boosting than the axis based RF in terms of prediction accuracy. Despite this endorsement, oblique RFs are far less frequently used than axis-based RFs due to the computational complexity of finding good linear combinations of variables while growing decision trees. In this presentation, I will present aorsf, an R package that provides a unified and fast interface to fit oblique RFs for classification, survival, and regression tasks. I’ll give a broad overview of how aorsf manages to avoid computational bottlenecks and demonstrate how it can be used as (1) a stand-alone tool, (2) a learner in the mlr3 ecosystem, and (3) a learner in the tidymodels ecosystem.*
