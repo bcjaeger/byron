@@ -1,0 +1,311 @@
+---
+title: "From raw data to publication-ready results"
+subtitle: "How the `pericircle` packages work together"
+description: "A worked example that uses perinary, periglue, and peripal to turn a raw dataset into a formatted table, a model results table, a figure, and inline statistics."
+author: Byron Jaeger
+date: 2026-10-15
+categories:
+  - R
+  - pericircle
+  - reproducible research
+execute:
+  freeze: auto
+  warning: false
+  message: false
+format:
+  html:
+    toc: true
+    code-fold: false
+    code-overflow: wrap
+title-block-banner: true
+---
+
+Most of the time in an applied analysis is not spent fitting models. It is spent turning results into something a reader can use: tables with consistent labels, numbers rounded the same way in the text as in the tables, figures whose legends match the tables, and outputs that stay consistent when the analysis is re-run. The `pericircle` packages exist to take that work off the analyst's plate.
+
+This page walks through a small analysis from start to finish. Each step uses one package, and each package hands its output to the next:
+
+| Step | Package | What it does |
+|:-----|:--------|:-------------|
+| 1. Describe the data | [`perinary`](https://perisphere-rwe.github.io/perinary) | One data dictionary holds labels, units, category labels, and ordering for every variable |
+| 2. Format the numbers | [`periglue`](https://perisphere-rwe.github.io/periglue) | Rounding rules for means, SDs, percentages, confidence intervals, and p-values |
+| 3. Color the figures | [`peripal`](https://github.com/perisphere-rwe/peripal) | A consistent palette with drop-in `ggplot2` scales |
+| 4. Organize the project | [`pericircumference`](https://github.com/perisphere-rwe/pericircumference) | A `targets` project template with versioned reports and slides |
+| 5. Define conditions | [`peridefs`](https://perisphere-rwe.github.io/peridefs) | Validated ICD-9, ICD-10, and HCPCS/CPT code sets for real-world claims data |
+
+The example uses the `palmerpenguins` data so that everything here can be run by anyone.
+
+## Setup
+
+`library(pericircle)` attaches all of the packages at once, much like `library(tidyverse)`:
+
+```{r}
+#| eval: false
+# install.packages("pak")
+pak::pak("perisphere-rwe/pericircle")
+
+library(pericircle)
+```
+
+```{r}
+#| include: false
+# the packages that library(pericircle) attaches, loaded individually here
+library(perinary)
+library(periglue)
+library(peripal)
+library(peridefs)
+```
+
+We also use a few general-purpose packages:
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(broom)
+library(flextable)
+
+data_peng <- palmerpenguins::penguins %>%
+  select(species, island, sex, body_mass_g,
+         bill_length_mm, flipper_length_mm) %>%
+  drop_na()
+
+data_peng
+```
+
+## Step 1: Write the data dictionary once (`perinary`)
+
+Without a dictionary, labels like "Body mass (g)" end up retyped in every table, figure, and slide, and they drift apart over time. With `perinary`, they are written once.
+
+`as_data_dictionary()` builds a starter dictionary from the data, and `get_unknowns()` lists what is still missing. It can even write the code needed to fill those gaps:
+
+```{r}
+dd <- as_data_dictionary(data_peng)
+
+get_unknowns(dd, as_request = TRUE)
+```
+
+Next, we fill in the gaps with the `set_` functions:
+
+```{r}
+dd <- dd %>%
+  set_labels(
+    species           = "Species",
+    island            = "Island",
+    sex               = "Sex",
+    body_mass_g       = "Body mass",
+    bill_length_mm    = "Bill length",
+    flipper_length_mm = "Flipper length"
+  ) %>%
+  set_units(
+    body_mass_g       = "g",
+    bill_length_mm    = "mm",
+    flipper_length_mm = "mm"
+  ) %>%
+  set_category_labels(
+    sex = c(female = "Female", male = "Male")
+  ) %>%
+  # report model effects per 10 mm rather than per 1 mm
+  set_divby_modeling(
+    bill_length_mm    = 10,
+    flipper_length_mm = 10
+  ) %>%
+  # sex is listed first in every table that uses this dictionary
+  set_variable_order(sex, .before = 1)
+
+# Every perinary function below will use this dictionary by default
+set_default_dictionary(dd)
+```
+
+## Step 2: Build a characteristics table (`perinary` + `periglue`)
+
+A "Table 1" usually mixes counts and percentages for categorical variables with means and SDs for continuous ones. `periglue` handles the rounding:
+
+- `peri_n_pct()` formats a count with its percentage.
+- `peri_ester()` rounds a mean and its SD together, following the convention that the precision of the SD sets the precision of the mean ([Blackstone, 2016](https://doi.org/10.1016/j.jtcvs.2016.09.003)).
+
+```{r}
+# categorical variables: n (%)
+tbl_cat <- data_peng %>%
+  pivot_longer(c(sex, island), names_to = "name", values_to = "level",
+               values_transform = as.character) %>%
+  count(species, name, level) %>%
+  group_by(species, name) %>%
+  mutate(value = peri_n_pct(n, n / sum(n))) %>%
+  ungroup() %>%
+  select(-n)
+
+# continuous variables: mean (SD)
+tbl_num <- data_peng %>%
+  pivot_longer(c(body_mass_g, bill_length_mm, flipper_length_mm)) %>%
+  group_by(species, name) %>%
+  summarize(
+    value = peri_ester(mean(value), sd(value), form = "{estimate} ({error})"),
+    .groups = "drop"
+  ) %>%
+  mutate(level = NA_character_)
+```
+
+`perinary` takes care of the rest. `index_rows()` sorts the rows into dictionary order, and the `translate_` functions swap raw names for labels:
+
+```{r}
+tbl_one <- bind_rows(tbl_cat, tbl_num) %>%
+  pivot_wider(names_from = species, values_from = value,
+              values_fill = "0 (0.0%)") %>%
+  index_rows() %>%
+  mutate(
+    group = if_else(is.na(level), "Mean (SD)", translate_names(name)),
+    label = if_else(
+      is.na(level),
+      translate_names(name, units = "descriptive"),
+      translate_categories(level, names = name)
+    )
+  )
+
+tbl_one %>%
+  select(group, label, Adelie, Chinstrap, Gentoo) %>%
+  as_grouped_data(groups = "group") %>%
+  as_flextable(hide_grouplabel = TRUE) %>%
+  set_header_labels(label = "Characteristic") %>%
+  bold(j = 1, i = ~ !is.na(group), bold = TRUE) %>%
+  padding(i = ~ is.na(group), j = 1, padding.left = 15) %>%
+  align(j = 2:4, align = "center", part = "all") %>%
+  theme_booktabs() %>%
+  autofit()
+```
+
+None of the labels in that table were typed in the table code. All of them came from the dictionary.
+
+## Step 3: Tabulate a regression model (`perinary` + `periglue`)
+
+Model output from `broom::tidy()` has rows named like `sexmale` or `speciesGentoo`. `translate_data(units = "model")` rescales the predictors using the dictionary's modeling divisors. `index_terms()` then matches each term back to its variable and category, adds reference rows, and sorts everything into dictionary order. `peri_glue()` and `peri_pvalue()` handle the formatting:
+
+```{r}
+fit <- data_peng %>%
+  translate_data(units = "model", apply_category_labels = FALSE,
+                 apply_variable_labels = FALSE) %>%
+  lm(body_mass_g ~ sex + species + bill_length_mm + flipper_length_mm,
+     data = .) %>%
+  tidy(conf.int = TRUE)
+
+tbl_fit <- fit %>%
+  filter(term != "(Intercept)") %>%
+  index_terms() %>%
+  mutate(
+    # categorical terms are grouped by variable; continuous terms share a group
+    group = if_else(is.na(label), "Body measurements", translate_names(name)),
+    label = coalesce(label, translate_names(name, units = "model")),
+    estimate = if_else(
+      reference,
+      "0 (reference)",
+      peri_glue("{estimate} ({conf.low}, {conf.high})")
+    ),
+    p.value = if_else(reference, "", peri_pvalue(p.value))
+  )
+
+tbl_fit %>%
+  select(group, label, estimate, p.value) %>%
+  as_grouped_data(groups = "group") %>%
+  as_flextable(hide_grouplabel = TRUE) %>%
+  set_header_labels(
+    label    = "Characteristic",
+    estimate = "Difference in body mass, g (95% CI)",
+    p.value  = "P-value"
+  ) %>%
+  padding(i = ~ is.na(group), j = 1, padding.left = 15) %>%
+  align(j = 2:3, align = "center", part = "all") %>%
+  theme_booktabs() %>%
+  autofit()
+```
+
+Because `set_variable_order()` put sex first, sex is listed first here too, just as it was in the characteristics table. The rows labeled "per 10 mm" were also built automatically, from the units and modeling divisors in the dictionary.
+
+## Step 4: Make a figure that matches the tables (`perinary` + `peripal`)
+
+`translate_data()` applies labels and category order to the data before plotting, so axis titles and legends use the same wording as the tables. `scale_color_peripal()` adds the Perisphere palette. For small numbers of groups, it samples the palette from the center outward, so brand colors come first:
+
+```{r}
+#| fig-width: 7
+#| fig-height: 4.5
+#| fig-alt: "Scatterplot of flipper length versus body mass for three penguin species, with a separate linear trend line for each species."
+
+data_plot <- translate_data(data_peng, units = "descriptive")
+
+ggplot(data_plot) +
+  aes(x = flipper_length_mm, y = body_mass_g, color = species) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_color_peripal(3) +
+  labs(
+    x = attr(data_plot$flipper_length_mm, "label"),
+    y = attr(data_plot$body_mass_g, "label"),
+    color = attr(data_plot$species, "label")
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(legend.position = "top")
+```
+
+## Step 5: Put results in the text (`periglue`)
+
+Numbers in the text should match the tables exactly. `as_inline()` turns a results table into a nested list you can index by name. `peri_glue()` works like `glue::glue()`, but it rounds every number it receives:
+
+```{r}
+inline <- fit %>%
+  mutate(text = peri_glue("{estimate} g (95% CI {conf.low}, {conf.high})")) %>%
+  as_inline(tbl_variables = "term", tbl_values = "text")
+
+mass_by_sex <- data_peng %>%
+  group_by(sex) %>%
+  summarize(mean = mean(body_mass_g), sd = sd(body_mass_g))
+```
+
+> After adjustment for species, bill length, and flipper length, male penguins weighed `r inline$sexmale` more than female penguins. Without adjustment, mean body mass was `r peri_glue("{mass_by_sex$mean[2]} g")` for males and `r peri_glue("{mass_by_sex$mean[1]} g")` for females.
+
+The sentence above was written in R Markdown as:
+
+```{verbatim}
+male penguins weighed `r inline$sexmale` more ...
+mean body mass was `r peri_glue("{mass_by_sex$mean[2]} g")` for males ...
+```
+
+If the data or the model change, the text updates with them.
+
+## Scaling up: projects and real-world data
+
+The penguin example covers a single analysis. Two more packages handle the work around it.
+
+### `pericircumference`: a standard project layout
+
+`use_pericircumference()` sets up a new project as a [`targets`](https://docs.ropensci.org/targets/) pipeline. It includes templates for the data, the dictionary (a `meta` target built with `perinary`), the summary statistics, and Word or HTML reports and slides. Every report is saved under a version number, and `finalize_version()` prints the changelog for that version so it can be sent to collaborators. Finalized versions are never overwritten:
+
+```{r}
+#| eval: false
+library(pericircumference)
+
+use_pericircumference(include_tutorials = TRUE)  # scaffold the project
+targets::tar_make()                              # build report-v0-1.docx, slides-v0-1.pptx
+finalize_version(major = 0, minor = 1)           # lock v0.1 and print its changelog
+```
+
+### `peridefs`: condition definitions for claims data
+
+Real-world evidence studies depend on how conditions are defined in claims data. `peridefs` provides versioned, tested code sets, so a definition used in one study can be reused exactly in the next:
+
+```{r}
+get_hypertension_v1_codes(code_type = "dx_icd10")
+```
+
+Each definition also includes a plain-language description of how it should be applied:
+
+```{r}
+#| message: true
+spec_hypertension_v1
+```
+
+When a definition is updated, it is released as a new version (`v2`, `v3`, and so on) instead of replacing the old one. Existing analyses keep the definition they were written with, and their results never change because of a package update.
+
+## Learn more
+
+- `perinary`: <https://perisphere-rwe.github.io/perinary>
+- `periglue`: <https://perisphere-rwe.github.io/periglue>
+- `peridefs`: <https://perisphere-rwe.github.io/peridefs>
+- `peripal`, `pericircumference`, and `pericircle`: <https://github.com/perisphere-rwe>

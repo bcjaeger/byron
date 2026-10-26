@@ -9,3 +9,5 @@
 /_site/
 
 dev
+
+**/*.quarto_ipynb

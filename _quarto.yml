@@ -1,5 +1,10 @@
 project:
   type: website
+  render:
+    - "*.qmd"
+    - "!project/"
+    - "!talk/"
+    - "!blog/"
 
 website:
   title: "Byron Jaeger"
@@ -9,14 +14,10 @@ website:
         text: Home
       - href: about/index.qmd
         text: About
-      - href: project/index.qmd
-        text: Projects
+      - href: software/index.qmd
+        text: Software
       - href: publication/index.qmd
         text: Publications
-      - href: talk/index.qmd
-        text: Talks
-      - href: blog/index.qmd
-        text: Blog
       - href: https://bcjaeger.github.io/cv/
         text: CV
 

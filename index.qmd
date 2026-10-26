@@ -1,7 +1,7 @@
 ---
 title: "Byron Jaeger, PhD"
 pagetitle: "Byron Jaeger, PhD"
-subtitle: "Assistant professor of Biostatistics<br>and Data Science"
+subtitle: "Director of Data Analytics<br>Perisphere Real World Evidence"
 image: assets/byron/model-art.jpg
 image-alt: "Abstract data art depicting model tuning"
 
@@ -14,6 +14,8 @@ about:
       href: https://github.com/bcjaeger
     - text: "{{< iconify academicons:google-scholar >}} Scholar"
       href: https://scholar.google.com/citations?user=4IKD_roAAAAJ&hl=en
+    - text: "{{< iconify fa6-solid building >}} Perisphere"
+      href: https://www.perisphere-rwe.com/
 page-layout: full
 
 execute: 
@@ -28,9 +30,9 @@ resources:
 ---
 
 ::: {#hero-heading}
-I am a biostatistician and an R enthusiast.<br> My research interests are health and data science.<br> I develop software for oblique random forests and<br> I help coordinate clinical trials and observational studies.
+I am a biostatistician and an R developer.<br> I lead the data analytics team at [Perisphere Real World Evidence](https://www.perisphere-rwe.com/),<br> where we build open-source R tools that turn real-world data<br> into publication-ready evidence. I also develop software for<br> oblique random forests and study blood pressure and cardiovascular health.
 
-[Learn more about me →](/about){.about-links .subtitle}
+[Perisphere R packages →](software/index.qmd){.about-links .subtitle} [Oblique random forests →](software/oblique-random-forests.qmd){.about-links .subtitle} [Learn more about me →](about/index.qmd){.about-links .subtitle}
 :::
 
 <!-- icon list at https://icons.getbootstrap.com/ -->

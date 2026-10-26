@@ -1,33 +1,34 @@
 ---
-title: "Publications" 
+title: "Publications"
 description: |
-  <br>
-  <br>
-  This is home for my research publications, each linked with<br>
-  accompanying preprints, posters, and/or news pieces. <br>
-  A full list of my publications is available on [Google scholar](https://scholar.google.com/citations?user=4IKD_roAAAAJ&hl=en)
-listing: 
-  contents: 
-    - "**/index.qmd"
-    - "**/index.markdown"
-    - "**/index.md"
-  sort: "date desc"
-  type: default
-  categories: false
-  sort-ui: false
-  filter-ui: false
-  fields: [title, author, categories, date]
-  image-align: left
-  # image-height: 10em
-  # page-size: 5
-
-format: 
-  html: 
-    page-layout: full
-title-block-banner: false
-
-header-includes: >
-  <link rel="stylesheet" href="../assets/listing-default.css">
-resources:
-  - ../assets/listing-default.css
+  Highlights from my research. See [my CV](https://bcjaeger.github.io/cv/) for all of my published articles.
+page-layout: article
+title-block-banner: true
+toc: true
+toc-location: right
 ---
+
+## Selected publications
+
+### Blood pressure in the US population
+
+My work on national trends in blood pressure and hypertension control, mostly using data from the National Health and Nutrition Examination Survey (NHANES), began at the University of Alabama at Birmingham.
+
+- Muntner P, Hardy ST, Fine LJ, **Jaeger BC**, Wozniak G, Levitan EB, Colantonio LD. [Trends in blood pressure control among US adults with hypertension, 1999–2000 to 2017–2018](2020-09-09-muntner_trends/index.qmd). *JAMA*. 2020.
+- Muntner P, Miles MA, **Jaeger BC**, et al. [Blood pressure control among US adults, 2009 to 2012 through 2017 to 2020](2022-09-01-muntner_blood/index.qmd). *Hypertension*. 2022.
+- **Jaeger BC**, Chen L, Foti K, et al., Muntner P. [Hypertension statistics for US adults: an open-source web application for analysis and visualization of NHANES data](2023-04-21-jaeger_hypertension_webapp/index.qmd). *Hypertension*. 2023.
+- Hardy ST, Sakhuja S, **Jaeger BC**, et al., Muntner P. [Trends in blood pressure and hypertension among US children and adolescents, 1999–2018](2021-04-01-hardy_trends/index.qmd). *JAMA Network Open*. 2021.
+- **Jaeger BC**, Akinyelure OP, Sakhuja S, et al., Muntner P, Schwartz JE. [Number and timing of ambulatory blood pressure monitoring measurements](2021-08-11-jaeger_number/index.qmd). *Hypertension Research*. 2021.
+
+### Clinical trials and risk prediction
+
+- **Jaeger BC**, Bress AP, Bundy JD, et al., Pajewski NM. [Longer-term all-cause and cardiovascular mortality with intensive blood pressure control: a secondary analysis of a randomized clinical trial](2022-11-01-jaeger_longer_term/index.qmd). *JAMA Cardiology*. 2022.
+- Segar MW, **Jaeger BC**, Patel KV, et al., Pandey A. [Development and validation of machine learning–based race-specific models to predict 10-year risk of heart failure](2021-06-15-segar_development/index.qmd). *Circulation*. 2021.
+
+### Oblique random survival forests
+
+- **Jaeger BC**, Long DL, Long DM, et al., Simon N. [Oblique random survival forests](2019-09-01-jaeger_oblique/index.qmd). *Annals of Applied Statistics*. 2019.
+- **Jaeger BC**, Welden S, Lenoir K, et al., Pajewski NM. [Accelerated and interpretable oblique random survival forests](2023-08-08-jaeger_aorsf/index.qmd). *Journal of Computational and Graphical Statistics*. 2023.
+
+See the [oblique random survival forests page](../software/oblique-random-forests.qmd) for the related software and talks.
+

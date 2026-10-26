@@ -1,6 +1,5 @@
 ---
 title: "Byron Jaeger"
-subtitle: Assistant Professor,<br>Wake Forest University School of Medicine
 about:
   template: trestles
   image: headshot.jpg
@@ -14,12 +13,43 @@ about:
 
 ## Hello, and thanks for visiting!
 
-I'm a biostatistician and data scientist in the [Wake Forest University School of Medicine](https://school.wakehealth.edu/)
+I'm the director of data analytics at [Perisphere Real World Evidence](https://www.perisphere-rwe.com/), where I lead our team of biostatisticians and develop the `pericircle` family of R packages. Our goal is to move research beyond publications and positively impact health outcomes using real world evidence.
 
-## Research
+If you'd like to learn more about my background in statistical computing, you may find a few software projects I've developed helpful:
 
-My research interests include random forests, prediction modeling, blood pressure, cardiovascular disease, and cognition. I work in clinical trials such as [SPRINT](https://www.sprinttrial.org/public/dspHome.cfm), [LEAP](https://school.wakehealth.edu/features/research/leaps-and-bounds-new-ways-to-treat-obesity), and [MoTrPAC](https://motrpac.org/). My roles include data coordination, dynamic reporting, simulation, and analysis. I'm the developer of [`aorsf`](https://docs.ropensci.org/aorsf/), an R package with fast routines to fit oblique random forests for classification, regression, and survival outcomes. I work with cognitive science experts to develop robust prediction models that can help direct cognitive screening to patients who may be at risk for developing cognitive impairment or dementia. I believe in opening science up and making it simpler, so that it's easier for everyone to participate. A great example of this is the hypertension statistics [web application](https://bcjaeger.shinyapps.io/nhanesShinyBP/) I developed with my colleagues in the Jackson Heart Study Hypertension Working Group. It's free, try it out! There are online tutorials for it [here](https://jhs-hwg.github.io/cardioStatsUSA/index.html) and a paper [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10424908/).
+- [`aorsf`](https://docs.ropensci.org/aorsf/), an R package with fast routines to fit oblique random forests for classification, regression, and survival outcomes.
 
-## Teaching
+- [Cardiometabolic statistics for US adults](https://bcjaeger.shinyapps.io/nhanesShinyBP/), a web application to explore trends in risk factors for cardiovascular disease among US adults from 1999 to 2020. [Online tutorials](https://jhs-hwg.github.io/cardioStatsUSA/index.html) are available as well as a [publication](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10424908/) describing design and rationale.
 
-I love to teach and learn new things. I'm currently teaching THSS 730: Introduction to Biostatistics. A few other teaching activities are my [workshop on random forests for prediction and inference](https://bcjaeger.github.io/melodem-apoe4-het/), my [demo of the aorsf package](https://www.youtube.com/watch?v=LJoGmQapvf0), and my all-time favorite class, [Introduction to R](http://bst680.rbind.io/).
+- `r2glmm`, an R package to compute $R^2$ statistics for fixed effects in the generalized linear mixed model. A [tutorial](https://github.com/bcjaeger/r2glmm#r2glmm) is available on GitHub and a [publication](https://www.tandfonline.com/doi/full/10.1080/02664763.2016.1193725) is available from the Journal of Applied Statistics.
+
+What I've been working on more recently
+
+- [`pericircle`](../software/index.qmd), a slice of Perisphere with R packages that help write clear, effective code across our projects. The family includes `perinary` (data dictionaries), `periglue` (rounding and formatting), `peripal` (color palettes), `pericircumference` (project templates built on `targets`), and `peridefs` (validated condition definitions for claims data). Together, they take an analysis from raw data to publication-ready tables, figures, and text. [See them work together →](../software/workflow.qmd)
+
+## Before Perisphere
+
+Before joining Perisphere, I was a faculty biostatistician at Wake Forest University School of Medicine, and before that at the University of Alabama at Birmingham.
+
+- **Oblique random forests.** I introduced [oblique random survival forests](../publication/2019-09-01-jaeger_oblique/index.qmd) and later developed [`aorsf`](https://docs.ropensci.org/aorsf/), a fast and interpretable implementation for survival, classification, and regression ([*JCGS*, 2023](../publication/2023-08-08-jaeger_aorsf/index.qmd)). The [oblique random survival forests page](../software/oblique-random-forests.qmd) collects the papers, software, and talks.
+
+- **Blood pressure and cardiovascular epidemiology.** With colleagues, I studied national trends in blood pressure control using NHANES, including papers in [*JAMA*](../publication/2020-09-09-muntner_trends/index.qmd) and [*Hypertension*](../publication/2022-09-01-muntner_blood/index.qmd), and the [cardioStatsUSA web application](../publication/2023-04-21-jaeger_hypertension_webapp/index.qmd).
+
+- **Clinical trials.** I worked on data coordination, reporting, simulation, and analysis for trials including [SPRINT](https://www.sprinttrial.org/public/dspHome.cfm), [LEAP](https://school.wakehealth.edu/features/research/leaps-and-bounds-new-ways-to-treat-obesity), and [MoTrPAC](https://motrpac.org/). I led a study of [longer-term mortality after intensive blood pressure control in SPRINT](../publication/2022-11-01-jaeger_longer_term/index.qmd), published in *JAMA Cardiology*.
+
+- **Prediction and dementia.** I worked with cognitive science experts to build prediction models that could help direct cognitive screening to patients at risk for cognitive impairment or dementia, and I led a [workshop on oblique and causal random forests](https://bcjaeger.github.io/melodem-apoe4-het/) for the MELODEM consortium.
+
+- **Teaching.** I taught introductory biostatistics and [Introduction to R](http://bst680.rbind.io/), and I still enjoy teaching R through talks and workshops.
+
+See [Selected publications](../publication/index.qmd) for highlights.
+
+## Working together
+
+I enjoy helping research teams turn complex data into clear, reproducible results. Some of the ways I can help:
+
+- Designing and running analyses of real-world data, including claims and electronic health records
+- Risk prediction and machine learning for time-to-event outcomes
+- Building reproducible pipelines that generate publication-ready tables, figures, reports, and slides
+- Developing R packages and tools that can support teams and simplify complex statistical processes
+
+If you'd like to discuss working together, please reach out through [Perisphere Real World Evidence](https://www.perisphere-rwe.com/) or [GitHub](https://github.com/bcjaeger).
