@@ -22,6 +22,9 @@ website:
         text: CV
 
 
+execute:
+  freeze: auto
+
 format:
   html:
     theme: sandstone
