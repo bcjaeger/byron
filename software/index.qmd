@@ -1,0 +1,109 @@
+---
+title: "Software"
+description: |
+  R packages I lead or co-develop, at Perisphere Real World Evidence and earlier in my research career.
+page-layout: article
+title-block-banner: true
+toc: true
+toc-location: right
+---
+
+## The `pericircle` packages
+
+At [Perisphere Real World Evidence](https://www.perisphere-rwe.com/), we've built a set of open-source R packages for the parts of an analysis that take time and cause headache: labeling variables, rounding numbers, keeping figures consistent, organizing projects, and defining conditions with code sets. Each package can be useful on its own, but they work best when they are used together.
+
+::: {.callout-tip appearance="simple"}
+## See them work together
+
+[**From ~~farm~~ data to table →**](workflow.qmd) walks through an example that includes building a data dictionary, a characteristics table, a regression table, a figure, and inline statistics.
+:::
+
+``` r
+# install.packages("pak")
+pak::pak("perisphere-rwe/pericircle")
+library(pericircle)   # attaches all of the packages below
+```
+
+::::::::: grid
+::: {.g-col-12 .g-col-md-6}
+### `perinary`
+
+**Data dictionaries that do things.**
+
+Have you ever noticed how lazy data dictionaries are? They just sit around in your files hoarding all the labels and definitions. No more. With `perinary`, dictionaries become part of your workflow. Store each variable's label, units, category labels, display order, and modeling scale in a dictionary object, then apply it anywhere: rename columns, recode categories, rescale model terms, and sort model output into a consistent order. 
+
+[Docs](https://perisphere-rwe.github.io/perinary) · [GitHub](https://github.com/perisphere-rwe/perinary)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### `periglue`
+
+**Rounding and formatting for tables and text.**
+
+`peri_glue()` inherits the `glue()` syntax for string interpolation. In addition, it rounds and formats every number it receives. Rounding specifications make it simple to change how the data are rounded when they are passed to `periglue` functions, and the default rounding behavior can be modified with `set_default_rounding_spec`.
+
+[Docs](https://perisphere-rwe.github.io/periglue) · [GitHub](https://github.com/perisphere-rwe/periglue)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### `peripal`
+
+**A consistent color palette for `ggplot2`.**
+
+A seven-color, warm-to-cool palette built around the Perisphere brand colors, with drop-in `scale_color_peripal()` and `scale_fill_peripal()` scales, monochrome gradients, and named diverging presets. For small numbers of groups, it picks colors from the center of the palette outward.
+
+[GitHub](https://github.com/perisphere-rwe/peripal)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### `pericircumference`
+
+**Start every project the same way.**
+
+`use_pericircumference()` sets up a [`targets`](https://docs.ropensci.org/targets/) pipeline with Perisphere's templates research projects. Outputs are saved under version numbers, and `finalize_version()` locks each version and prints its changelog for collaborators. Finalized reports are protected from being overwritten.
+
+[GitHub](https://github.com/perisphere-rwe/pericircumference)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### `peridefs`
+
+**Validated condition definitions for claims data.**
+
+Versioned ICD-9, ICD-10, and HCPCS/CPT code sets and drug-class generic names for conditions such as hypertension, diabetes, heart failure, chronic kidney disease, and atherosclerotic cardiovascular disease. Each code set was developed by experienced claims-data analysts using a standardized procedure. Definitions are provided through functions, and function names are versioned. This ensures a package update never silently changes an existing analysis.
+
+[Docs](https://perisphere-rwe.github.io/peridefs) · [GitHub](https://github.com/perisphere-rwe/peridefs)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### `pericircle`
+
+**Install and load everything at once.**
+
+A meta-package modeled on `tidyverse`. Installing `pericircle` will install all of the packages above, and running `library(pericircle)` attaches all of the packages above.
+
+[GitHub](https://github.com/perisphere-rwe/pericircle)
+:::
+:::::::::
+
+## Research software
+
+These packages and tools come from my earlier work at Wake Forest University School of Medicine and the University of Alabama at Birmingham.
+
+### `aorsf`: accelerated oblique random forests
+
+[`aorsf`](https://docs.ropensci.org/aorsf/) fits oblique random forests for survival, classification, and regression. It began as the method in my [oblique random survival forests paper](../publication/2019-09-01-jaeger_oblique/index.qmd) and became the much faster, interpretable implementation described in [*Journal of Computational and Graphical Statistics*](../publication/2023-08-08-jaeger_aorsf/index.qmd). The package was peer reviewed by [rOpenSci](https://ropensci.org/), and it can be used on its own or inside [`tidymodels`](https://www.tidymodels.org/) and [`mlr3`](https://mlr3.mlr-org.com/). The [oblique random survival forests page](oblique-random-forests.qmd) collects the papers, the history of the package, and talks in one place.
+
+**Recent talks on `aorsf`**
+
+- *Oblique random forests: making Leo Breiman's masterpiece accessible and interpretable with `aorsf`* (2025). [Slides](https://bcjaeger.github.io/seminar-aorsf-cair/#/title-slide) · [Code](https://github.com/bcjaeger/seminar-aorsf-cair)
+- *Oblique and causal random forests*, MELODEM data workshop (2024). [Slides](https://bcjaeger.github.io/melodem-apoe4-het/#day-1-oblique-and-causal-random-forests) · [Code](https://github.com/bcjaeger/melodem-apoe4-het)
+- *R/Medicine demo day: `aorsf`*. [Video](https://www.youtube.com/watch?v=LJoGmQapvf0) · [Slides](https://bcjaeger.github.io/seminar-orsf-Rmedicine/#1) · [Code](https://github.com/bcjaeger/seminar-orsf-Rmedicine)
+
+### `cardioStatsUSA`: hypertension statistics for everyone
+
+A [free web application](https://bcjaeger.shinyapps.io/nhanesShinyBP/) for exploring blood pressure and cardiometabolic risk factor trends among US adults in NHANES, developed with the Jackson Heart Study Hypertension Working Group. It is described in [*Hypertension*](../publication/2023-04-21-jaeger_hypertension_webapp/index.qmd), and [tutorials](https://jhs-hwg.github.io/cardioStatsUSA/index.html) are available.
+
+### `r2glmm`: R² for mixed models
+
+[`r2glmm`](https://github.com/bcjaeger/r2glmm#r2glmm) computes R² statistics for fixed effects in generalized linear mixed models, as described in the [*Journal of Applied Statistics*](../publication/2017-04-26-jaeger_r2fixed/index.qmd).

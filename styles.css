@@ -1,1 +1,10 @@
 /* css styles */
+
+/* About page: keep the photo and links in view while the text scrolls */
+@media (min-width: 992px) {
+  .quarto-about-trestles .about-entity {
+    position: sticky;
+    top: 5rem;
+    align-self: flex-start;
+  }
+}

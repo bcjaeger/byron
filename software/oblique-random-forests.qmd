@@ -1,0 +1,98 @@
+---
+title: "Oblique random survival forests"
+subtitle: "Papers, software, and talks on oblique random forests, all in one place."
+title-block-banner: true
+toc: true
+toc-location: right
+execute:
+  freeze: auto
+  warning: false
+  message: false
+---
+
+Random forests usually split each tree node on a single variable. An *oblique* random forest splits on a linear combination of variables instead. Leo Breiman suggested this idea in his original random forest paper, but it was rarely used because finding good linear combinations is slow. My research on oblique random survival forests (ORSF) has worked on making the method fast, accurate, and interpretable for time-to-event outcomes, and on making it easy to use in R.
+
+## Papers
+
+- **Oblique random survival forests** (*Annals of Applied Statistics*, 2019). This paper introduced the ORSF, which uses regularized Cox regression to find linear combinations of predictors at each split. It showed strong prognostic performance compared with standard random survival forests, conditional inference forests, regression, and boosting, and included an application to predicting atherosclerotic cardiovascular disease risk in the Jackson Heart Study. [Details](../publication/2019-09-01-jaeger_oblique/index.qmd)
+
+- **Accelerated and interpretable oblique random survival forests** (*Journal of Computational and Graphical Statistics*, 2023). This paper introduced the methods behind `aorsf`: Newton-Raphson scoring to fit split rules quickly, and negation importance to measure variable importance. Large benchmarks showed that it is both accurate and fast. [Details](../publication/2023-08-08-jaeger_aorsf/index.qmd) · [Benchmark code](https://github.com/bcjaeger/aorsf-bench)
+
+## Software: `aorsf`
+
+[**`aorsf`**](https://docs.ropensci.org/aorsf/) fits oblique random forests for survival, classification, and regression, with tools for interpretation such as partial dependence, individual conditional expectations, and variable importance. It works as an engine in [`tidymodels`](https://www.tidymodels.org/) (through `bonsai` and `censored`) and in [`mlr3`](https://mlr3.mlr-org.com/).
+
+`aorsf` began as the `obliqueRSF` package, which accompanied the 2019 paper but was slow and had few tools for interpretation. When `aorsf` was [peer reviewed by rOpenSci](https://github.com/ropensci/software-review/issues/532), it fit only survival forests. One reviewer, Marvin N. Wright (author of `ranger`), asked a good question: why not make one fast oblique random forest package for every type of outcome? Other packages, like [`obliqueRF`](https://CRAN.R-project.org/package=obliqueRF), [`RLT`](https://CRAN.R-project.org/package=RLT), and [`rotationForest`](https://CRAN.R-project.org/package=rotationForest), provided specific kinds of oblique forests, but none brought them together. Today, `aorsf` covers classification, regression, and survival.
+
+### A small benchmark
+
+How fast is `aorsf`? The benchmark below fits a 50-tree survival forest to the primary biliary cholangitis data (`pbc_orsf`, 276 patients and 17 predictors) with four approaches:
+
+- `aorsf` with its default Newton-Raphson scoring to find linear combinations
+- `aorsf` with penalized Cox regression (`glmnet`) to find linear combinations, the approach used in the 2019 paper
+- `obliqueRSF`, the original implementation from the 2019 paper (archived from CRAN; install with `remotes::install_github("bcjaeger/obliqueRSF")`)
+- `ranger`, a fast and widely used *axis-based* random survival forest, for reference
+
+```{r}
+library(aorsf)
+library(ranger)
+library(survival)
+library(microbenchmark)
+suppressPackageStartupMessages(library(obliqueRSF))
+
+pbc <- pbc_orsf
+pbc$id <- NULL
+
+set.seed(329)
+
+bm <- microbenchmark(
+  aorsf = orsf(
+    Surv(time, status) ~ ., data = pbc, n_tree = 50
+  ),
+  aorsf_glmnet = orsf(
+    Surv(time, status) ~ ., data = pbc, n_tree = 50,
+    control = orsf_control_survival(method = "net")
+  ),
+  obliqueRSF = ORSF(
+    data = pbc, time = "time", status = "status",
+    ntree = 50, verbose = FALSE
+  ),
+  ranger = ranger(
+    Surv(time, status) ~ ., data = pbc, num.trees = 50
+  ),
+  times = 5
+)
+```
+
+Time to fit each forest over 5 runs, in seconds:
+
+```{r}
+print(bm, unit = "s", signif = 3)
+```
+
+The same results relative to the fastest approach:
+
+```{r}
+print(bm, unit = "relative", signif = 3)
+```
+
+In this run, `aorsf` fit an oblique forest faster than `ranger` fit an axis-based one, and far faster than either approach based on penalized regression. Timings depend on the data and hardware, so treat them as a rough guide. See the [*JCGS* paper](../publication/2023-08-08-jaeger_aorsf/index.qmd) and its [benchmark code](https://github.com/bcjaeger/aorsf-bench) for a large, systematic comparison of speed and prediction accuracy across many datasets.
+
+## Talks and workshops
+
+- **Oblique random forests: making Leo Breiman's masterpiece accessible and interpretable with `aorsf`** (2025). An overview of how `aorsf` avoids computational bottlenecks, with demonstrations in base R, `mlr3`, and `tidymodels`. [Slides](https://bcjaeger.github.io/seminar-aorsf-cair/#/title-slide) · [Code](https://github.com/bcjaeger/seminar-aorsf-cair)
+
+- **Oblique and causal random forests**, MELODEM data workshop (2024). A hands-on workshop that uses random forests to predict dementia risk and to study heterogeneity in the association between APOE4 and dementia. [Slides and workshop site](https://bcjaeger.github.io/melodem-apoe4-het/#day-1-oblique-and-causal-random-forests) · [Code](https://github.com/bcjaeger/melodem-apoe4-het)
+
+- **R/Medicine demo day: `aorsf`**. A live demonstration of fitting and interpreting oblique random survival forests, with a light introduction to supervised learning, random forests, and oblique trees. [Video](https://www.youtube.com/watch?v=LJoGmQapvf0) · [Slides](https://bcjaeger.github.io/seminar-orsf-Rmedicine/#1) · [Code](https://github.com/bcjaeger/seminar-orsf-Rmedicine)
+
+- **Fast code for statisticians**, JSM (2022). Four ideas for writing faster R packages with `Rcpp`, drawn from my experience developing ORSF software. [Slides](https://bcjaeger.github.io/seminar-fastpack/#1)
+
+## Example code
+
+- [**`aorsf` documentation**](https://docs.ropensci.org/aorsf/): getting started, interpretation, and articles on oblique splitting.
+- [**targets-tidymodels**](https://github.com/bcjaeger/targets-tidymodels): a `targets` pipeline that tunes and compares survival models in `tidymodels`, including `aorsf`.
+
+## Working with me on ORSF
+
+If you are thinking about using oblique random forests for risk prediction, heterogeneity of treatment effects, or variable selection in a cohort study, trial, or real-world dataset, I'm happy to talk. You can reach me through [GitHub](https://github.com/bcjaeger) or at [Perisphere Real World Evidence](https://www.perisphere-rwe.com/).
